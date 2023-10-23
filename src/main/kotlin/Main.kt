@@ -1,5 +1,6 @@
 
 import org.http4k.core.HttpHandler
+import org.http4k.core.Method
 import org.http4k.core.Method.GET
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
@@ -11,11 +12,17 @@ import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 
 val app: HttpHandler = routes(
-    "/ping" bind GET to {
-        Response(OK).body("pong")
+    "/train" bind GET to {
+        Response(OK).body("pong train")
     },
-    "/pong" bind GET to {
-        Response(OK).body("ping")
+    "/train{id}" bind GET to {
+        Response(OK).body("ping train id")
+    },
+    "/train{id}/sightings" bind GET to {
+        Response(OK).body("ping sightings get")
+    },
+    "/sightings" bind Method.POST to {
+        Response(OK).body("ping sightings post")
     }
 )
 
