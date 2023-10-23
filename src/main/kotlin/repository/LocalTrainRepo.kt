@@ -2,11 +2,9 @@ package repository
 
 import Train
 
-class LocalTrainRepo(trainInfo : List<Train>) : TrainRepo {
+class LocalTrainRepo(trains : List<Train>) : TrainRepo {
 
-    private val trainInfo = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
-        Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
-
+    private val trainInfo = trains
     override fun getAllTrains(): List<Train> {
         return trainInfo
     }
