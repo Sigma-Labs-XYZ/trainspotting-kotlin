@@ -11,10 +11,11 @@ class LocalTrainRepoTest {
         )
     }
 
-    private val repoToTest = LocalTrainRepo(setup())
+    private val repoToTest = LocalTrainRepo()
 
     @Test
     fun testGetAllTrains() {
+        repoToTest.setTrainInfo(setup())
         assert(repoToTest.getAllTrains().size == 2)
         assert(repoToTest.getAllTrains()[0].id == "Fake-One")
         assert(repoToTest.getAllTrains()[0].name == "Tomas")
@@ -24,6 +25,7 @@ class LocalTrainRepoTest {
 
     @Test
     fun testGetTrain() {
+        repoToTest.setTrainInfo(setup())
         val trainReturned = repoToTest.getTrain("Fake-Two")
         assert(trainReturned!!.colour == "Brown")
         assert(trainReturned.name == "Owl")

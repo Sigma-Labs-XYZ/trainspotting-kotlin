@@ -15,20 +15,17 @@ import org.http4k.server.asServer
 import repository.LocalTrainRepo
 
 
-// Registering the Kotlin module with the ObjectMapper instance
 val mapper = ObjectMapper()
-val trainsExample = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
-Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
 
 val app: HttpHandler = routes(
     "/train" bind GET to {
-        val trainRepo = LocalTrainRepo(trainsExample)
+        val trainRepo = LocalTrainRepo()
         val allTrains = trainRepo.getAllTrains()
         val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
         Response(OK).body(trainsAsString)
     },
     "/train{id}" bind GET to {
-        val trainRepo = LocalTrainRepo(trainsExample)
+        val trainRepo = LocalTrainRepo()
         val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id")))
         Response(OK).body(train)
     },

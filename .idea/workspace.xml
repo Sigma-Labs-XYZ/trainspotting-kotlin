@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="get train by id end point completed.&#10;Functions in train repo changed to account for null">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/TrainTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" afterDir="false" />
+    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="added second endpoint, added tests for Train and Local Train repo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +273,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698068524553</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added second endpoint, added tests for Train and Local Train repo">
+      <option name="closed" value="true" />
+      <created>1698072470227</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698072470227</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added second endpoint, added tests for Train and Local Train repo">
+      <option name="closed" value="true" />
+      <created>1698072570974</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698072570974</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +310,7 @@
     <MESSAGE value="added correct method of calling dependecies" />
     <MESSAGE value="created end points and installed import for post" />
     <MESSAGE value="get train by id end point completed.&#10;Functions in train repo changed to account for null" />
-    <option name="LAST_COMMIT_MESSAGE" value="get train by id end point completed.&#10;Functions in train repo changed to account for null" />
+    <MESSAGE value="added second endpoint, added tests for Train and Local Train repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="added second endpoint, added tests for Train and Local Train repo" />
   </component>
 </project>
