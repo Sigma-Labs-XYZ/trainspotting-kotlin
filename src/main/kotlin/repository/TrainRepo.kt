@@ -1,9 +1,12 @@
 package repository
 
+import Train
+
 
 interface TrainRepo {
 
-    fun getAllTrains(): Any {
-        return LocalTrainRepo()
-    }
+    fun getAllTrains(): Any
+
+    fun getTrain(id: Int) : Train
+
 }

@@ -10,4 +10,8 @@ class LocalTrainRepo : TrainRepo {
     override fun getAllTrains(): Any {
         return trainInfo
     }
+
+    override fun getTrain(id: Int): Train {
+        TODO("Not yet implemented")
+    }
 }
