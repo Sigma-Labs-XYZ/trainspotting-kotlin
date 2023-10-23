@@ -10,10 +10,20 @@ import org.http4k.routing.bind
 import org.http4k.routing.routes
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
+import repository.LocalTrainRepo
+import com.fasterxml.jackson.databind.ObjectMapper
+
+
+// Registering the Kotlin module with the ObjectMapper instance
+val mapper = ObjectMapper()
+
 
 val app: HttpHandler = routes(
     "/train" bind GET to {
-        Response(OK).body("pong train")
+
+        val trainRepo = LocalTrainRepo()
+        val allTrains = trainRepo.getAllTrains()
+        Response(OK).body(allTrains.toString())
     },
     "/train{id}" bind GET to {
         Response(OK).body("ping train id")
@@ -26,11 +36,11 @@ val app: HttpHandler = routes(
     }
 )
 
-
 fun main(args: Array<String>) {
-    println("Hello World!")
+    val printingApp: HttpHandler = PrintRequest().then(app)
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    val server = printingApp.asServer(SunHttp(9000)).start()
+
+    println("Server started on " + server.port())
 }
+
