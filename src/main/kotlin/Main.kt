@@ -1,4 +1,5 @@
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Method.GET
@@ -11,19 +12,17 @@ import org.http4k.routing.routes
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import repository.LocalTrainRepo
-import com.fasterxml.jackson.databind.ObjectMapper
 
 
 // Registering the Kotlin module with the ObjectMapper instance
 val mapper = ObjectMapper()
 
-
 val app: HttpHandler = routes(
     "/train" bind GET to {
-
         val trainRepo = LocalTrainRepo()
         val allTrains = trainRepo.getAllTrains()
-        Response(OK).body(allTrains.toString())
+        val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
+        Response(OK).body(trainsAsString)
     },
     "/train{id}" bind GET to {
         Response(OK).body("ping train id")
@@ -36,7 +35,7 @@ val app: HttpHandler = routes(
     }
 )
 
-fun main(args: Array<String>) {
+fun main() {
     val printingApp: HttpHandler = PrintRequest().then(app)
 
     val server = printingApp.asServer(SunHttp(9000)).start()
