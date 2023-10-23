@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="added getTrain function">
+    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="created end points and installed import for post">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +72,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "train__endpoint",
+    "git-widget-placeholder": "train__id__endpoint",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -155,7 +156,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698052923765</updated>
-      <workItem from="1698052924758" duration="12124000" />
+      <workItem from="1698052924758" duration="9278000" />
     </task>
     <task id="LOCAL-00001" summary="added correct method of calling dependecies">
       <option name="closed" value="true" />
@@ -205,23 +206,7 @@
       <option name="project" value="LOCAL" />
       <updated>1698055452515</updated>
     </task>
-    <task id="LOCAL-00007" summary="made Train class, Train Repo, DatabaseClient, installed Jackson dependency">
-      <option name="closed" value="true" />
-      <created>1698063806941</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1698063806941</updated>
-    </task>
-    <task id="LOCAL-00008" summary="added getTrain function">
-      <option name="closed" value="true" />
-      <created>1698063969442</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1698063969442</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,8 +226,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added correct method of calling dependecies" />
     <MESSAGE value="created end points and installed import for post" />
-    <MESSAGE value="made Train class, Train Repo, DatabaseClient, installed Jackson dependency" />
-    <MESSAGE value="added getTrain function" />
-    <option name="LAST_COMMIT_MESSAGE" value="added getTrain function" />
+    <option name="LAST_COMMIT_MESSAGE" value="created end points and installed import for post" />
   </component>
 </project>

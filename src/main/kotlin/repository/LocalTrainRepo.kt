@@ -11,7 +11,12 @@ class LocalTrainRepo : TrainRepo {
         return trainInfo
     }
 
-    override fun getTrain(id: Int): Train {
-        TODO("Not yet implemented")
+    override fun getTrain(id: String?): Train? {
+        for (train in trainInfo) {
+            if (train.id == id) (
+                return train
+            )
+        }
+        return null
     }
 }
