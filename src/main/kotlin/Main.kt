@@ -8,13 +8,13 @@ import org.http4k.core.Status.Companion.OK
 import org.http4k.core.then
 import org.http4k.filter.DebuggingFilters.PrintRequest
 import org.http4k.routing.bind
+import org.http4k.routing.path
 import org.http4k.routing.routes
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import repository.LocalTrainRepo
 
 
-// Registering the Kotlin module with the ObjectMapper instance
 val mapper = ObjectMapper()
 
 val app: HttpHandler = routes(
@@ -25,7 +25,9 @@ val app: HttpHandler = routes(
         Response(OK).body(trainsAsString)
     },
     "/train{id}" bind GET to {
-        Response(OK).body("ping train id")
+        val trainRepo = LocalTrainRepo()
+        val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id")))
+        Response(OK).body(train)
     },
     "/train{id}/sightings" bind GET to {
         Response(OK).body("ping sightings get")

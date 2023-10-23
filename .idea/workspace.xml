@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="added getTrain function">
+    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="added second endpoint, added tests for Train and Local Train repo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +41,7 @@
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -71,7 +72,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "train__endpoint",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "train__id__endpoint",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,11 +86,66 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="Repository" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+      <recent name="repository" />
+    </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager">
+    <configuration name="LocalTrainRepoTest.getAllTrains" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;repository.LocalTrainRepoTest.getAllTrains&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="LocalTrainRepoTest.testGetTrain" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;repository.LocalTrainRepoTest.testGetTrain&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="anorak [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -141,6 +199,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.LocalTrainRepoTest.testGetTrain" />
+        <item itemvalue="Gradle.LocalTrainRepoTest.getAllTrains" />
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.anorak [buildDependents]" />
         <item itemvalue="Gradle.anorak [build]" />
@@ -155,7 +215,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698052923765</updated>
-      <workItem from="1698052924758" duration="12124000" />
+      <workItem from="1698052924758" duration="9278000" />
     </task>
     <task id="LOCAL-00001" summary="added correct method of calling dependecies">
       <option name="closed" value="true" />
@@ -205,23 +265,31 @@
       <option name="project" value="LOCAL" />
       <updated>1698055452515</updated>
     </task>
-    <task id="LOCAL-00007" summary="made Train class, Train Repo, DatabaseClient, installed Jackson dependency">
+    <task id="LOCAL-00007" summary="get train by id end point completed.&#10;Functions in train repo changed to account for null">
       <option name="closed" value="true" />
-      <created>1698063806941</created>
+      <created>1698068524553</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1698063806941</updated>
+      <updated>1698068524553</updated>
     </task>
-    <task id="LOCAL-00008" summary="added getTrain function">
+    <task id="LOCAL-00008" summary="added second endpoint, added tests for Train and Local Train repo">
       <option name="closed" value="true" />
-      <created>1698063969442</created>
+      <created>1698072470227</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1698063969442</updated>
+      <updated>1698072470227</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added second endpoint, added tests for Train and Local Train repo">
+      <option name="closed" value="true" />
+      <created>1698072570974</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698072570974</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,8 +309,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added correct method of calling dependecies" />
     <MESSAGE value="created end points and installed import for post" />
-    <MESSAGE value="made Train class, Train Repo, DatabaseClient, installed Jackson dependency" />
-    <MESSAGE value="added getTrain function" />
-    <option name="LAST_COMMIT_MESSAGE" value="added getTrain function" />
+    <MESSAGE value="get train by id end point completed.&#10;Functions in train repo changed to account for null" />
+    <MESSAGE value="added second endpoint, added tests for Train and Local Train repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="added second endpoint, added tests for Train and Local Train repo" />
   </component>
 </project>
