@@ -13,13 +13,14 @@ repositories {
 }
 
 dependencies {
+
     testImplementation(kotlin("test"))
-    implementation("org.http4k:http4k-core:${extra["http4kVersion"]}")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${extra["kotlinVersion"]}")
-    testImplementation("org.http4k:http4k-testing-approval:${extra["http4kVersion"]}")
-    testImplementation("org.http4k:http4k-testing-hamkrest:${extra["http4kVersion"]}")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${extra["junitVersion"]}")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:${extra["junitVersion"]}")
+    implementation("org.http4k:http4k-core:${System.getProperty("http4kVersion")}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${System.getProperty("kotlinVersion")}")
+    testImplementation("org.http4k:http4k-testing-approval:${System.getProperty("http4kVersion")}")
+    testImplementation("org.http4k:http4k-testing-hamkrest:${System.getProperty("http4kVersion")}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${System.getProperty("junitVersion")}")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:${System.getProperty("junitVersion")}")
 }
 
 tasks.test {
