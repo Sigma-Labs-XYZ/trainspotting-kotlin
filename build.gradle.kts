@@ -21,6 +21,8 @@ dependencies {
     testImplementation("org.http4k:http4k-testing-hamkrest:${System.getProperty("http4kVersion")}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${System.getProperty("junitVersion")}")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:${System.getProperty("junitVersion")}")
+    implementation("com.fasterxml.jackson.core:jackson-core:${System.getProperty("jacksonVersion")}")
+    implementation("com.fasterxml.jackson.core:jackson-databind:${System.getProperty("jacksonVersion")}")
 }
 
 tasks.test {
