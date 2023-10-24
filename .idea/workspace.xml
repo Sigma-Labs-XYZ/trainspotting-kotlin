@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="added second endpoint, added tests for Train and Local Train repo">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Sighting.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Station.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +43,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -74,7 +78,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "train__id__endpoint",
+    "git-widget-placeholder": "get__sightings__endpoint",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,7 +101,7 @@
       <recent name="repository" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="LocalTrainRepoTest.getAllTrains" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -199,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.anorak [build]" />
+        <item itemvalue="Gradle.anorak [buildDependents]" />
         <item itemvalue="Gradle.LocalTrainRepoTest.testGetTrain" />
         <item itemvalue="Gradle.LocalTrainRepoTest.getAllTrains" />
-        <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.anorak [buildDependents]" />
-        <item itemvalue="Gradle.anorak [build]" />
       </list>
     </recent_temporary>
   </component>
