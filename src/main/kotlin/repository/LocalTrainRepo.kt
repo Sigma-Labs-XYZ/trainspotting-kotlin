@@ -3,6 +3,7 @@ package repository
 import Sighting
 import Station
 import Train
+import java.rmi.NoSuchObjectException
 
 class LocalTrainRepo() : TrainRepo {
 
@@ -15,16 +16,21 @@ class LocalTrainRepo() : TrainRepo {
     }
 
     override fun getAllTrains(): List<Train> {
-        return trainInfo
+        if (trainInfo.size != 0) {
+            return trainInfo
+        }
+        else {
+            throw NoSuchElementException("No trains found in database")
+        }
     }
 
-    override fun getTrain(id: String): Train? {
+    override fun getTrain(id: String): Train {
         for (train in trainInfo) {
             if (train.id == id) {
                 return train
             }
         }
-        return null
+        throw NoSuchObjectException("No matching train with id $id found")
     }
 
     override fun getSightings(id: String): List<Sighting> {
@@ -34,7 +40,12 @@ class LocalTrainRepo() : TrainRepo {
                 relevantSightings.add(sighting)
             }
         }
-        return relevantSightings
+        if (relevantSightings.size != 0) {
+            return relevantSightings
+        }
+        else {
+            throw NoSuchElementException("No sightings found for train $id")
+        }
     }
 
 }

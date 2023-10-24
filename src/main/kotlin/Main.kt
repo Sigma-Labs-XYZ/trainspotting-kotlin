@@ -20,19 +20,31 @@ val trainRepo = LocalTrainRepo()
 
 val app: HttpHandler = routes(
     "/train" bind GET to {
-        val allTrains = trainRepo.getAllTrains()
-        val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
-        Response(OK).body(trainsAsString)
+        try {
+            val allTrains = trainRepo.getAllTrains()
+            val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
+            Response(OK).body(trainsAsString)
+        } catch (e: Exception){
+            Response(OK).body(e.message.toString())
+        }
+
     },
     "/train/{id}" bind GET to {
-        val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id").toString()))
-        Response(OK).body(train)
+        try {
+            val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id").toString()))
+            Response(OK).body(train)
+        } catch (e: Exception) {
+            Response(OK).body(e.message.toString())
+        }
     },
     "/train/{id}/sightings" bind GET to {
-        val sightings = trainRepo.getSightings(it.path("id").toString())
-        val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
-
-        Response(OK).body(jsonSightings)
+        try {
+            val sightings = trainRepo.getSightings(it.path("id").toString())
+            val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
+            Response(OK).body(jsonSightings)
+        } catch (e: Exception){
+            Response(OK).body(e.message.toString())
+        }
     },
     "/sightings" bind Method.POST to {
         Response(OK).body("ping sightings post")
