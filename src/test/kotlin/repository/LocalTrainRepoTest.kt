@@ -47,6 +47,7 @@ class LocalTrainRepoTest {
                 "    \"timestamp\": \"$testTime\"\n" +
                 "  }"
 
+        println(jsonString)
         val sighting = repoToTest.getSightingFromJson(jsonString)
         val train = Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A")
 

@@ -14,6 +14,7 @@ import org.http4k.routing.routes
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import repository.LocalTrainRepo
+import java.io.BufferedReader
 
 
 var mapper = ObjectMapper()
@@ -49,8 +50,11 @@ val app: HttpHandler = routes(
         }
     },
     "/sightings" bind Method.POST to {
-        val sighting = trainRepo.getSightingFromJson(it.body.toString())
+        val content = it.bodyString()
+        println(content)
+        val sighting = trainRepo.getSightingFromJson(content)
         trainRepo.postSighting(sighting)
+
         Response(OK).body("ping sightings post")
     }
 )
