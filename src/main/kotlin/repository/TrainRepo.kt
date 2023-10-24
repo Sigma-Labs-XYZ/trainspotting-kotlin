@@ -12,8 +12,6 @@ interface TrainRepo {
 
     fun postSighting(sighting: Sighting)
 
-    fun getTrainFromJson(json: String): Train
-
     fun getSightingFromJson(json: String): Sighting
 
 }

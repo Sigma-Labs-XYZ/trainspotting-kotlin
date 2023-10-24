@@ -13,10 +13,6 @@ class DatabaseClient : TrainRepo {
         TODO("Not yet implemented")
     }
 
-    override fun getTrainFromJson(json: String): Train {
-        TODO("Not yet implemented")
-    }
-
     override fun postSighting(sighting: Sighting) {
         TODO("Not yet implemented")
     }

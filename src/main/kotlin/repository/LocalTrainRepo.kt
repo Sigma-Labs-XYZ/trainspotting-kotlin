@@ -2,6 +2,7 @@ package repository
 
 import Sighting
 import Train
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import java.time.LocalDateTime
@@ -32,17 +33,12 @@ class LocalTrainRepo() : TrainRepo {
         return null
     }
 
-    override fun getTrainFromJson(json: String): Train {
-        val mapper = jacksonObjectMapper()
-        val node = mapper.readTree(json).get("train")
-        return mapper.readValue<Train>(node.toString())
-    }
-
     override fun getSightingFromJson(json: String): Sighting {
         val mapper = jacksonObjectMapper()
+        mapper.registerModule(JavaTimeModule())
         val node = mapper.readTree(json)
         println(node)
-        return Sighting(0, "test", Train("f", "f", "f", "F"), LocalDateTime.now())
+        return mapper.readValue<Sighting>(json)
     }
 
     override fun postSighting(sighting: Sighting) {

@@ -2,6 +2,7 @@ package repository
 
 import Train
 import org.junit.jupiter.api.Test
+import java.time.LocalDateTime
 import kotlin.test.assertEquals
 
 class LocalTrainRepoTest {
@@ -48,7 +49,7 @@ class LocalTrainRepoTest {
                 "    },\n" +
                 "    \"timestamp\": \"string\"\n" +
                 "  }"
-        val jsonTrain = repoToTest.getTrainFromJson(jsonString)
+        val jsonTrain = repoToTest.getAllTrains()[0]
 
         assertEquals("FSE34-fSFes2", jsonTrain.id)
         assertEquals("Thomas", jsonTrain.name)
@@ -60,18 +61,14 @@ class LocalTrainRepoTest {
     @Test
     fun getSightingFromJsonTest() {
         val jsonString = "{\n" +
-                "    \"id\": \"string\",\n" +
-                "    \"station\": {\n" +
-                "      \"id\": \"string\",\n" +
-                "      \"name\": \"Liverpool Street\"\n" +
-                "    },\n" +
+                "    \"station\": \"Liverpool Street\",\n" +
                 "    \"train\": {\n" +
                 "      \"id\": \"FSE34-fSFes2\",\n" +
                 "      \"name\": \"Thomas\",\n" +
                 "      \"colour\": \"Blue\",\n" +
                 "      \"trainNumber\": \"T1192A\"\n" +
                 "    },\n" +
-                "    \"timestamp\": \"string\"\n" +
+                "    \"timestamp\": \"${LocalDateTime.now()}\"\n" +
                 "  }"
 
         val sighting = repoToTest.getSightingFromJson(jsonString)
