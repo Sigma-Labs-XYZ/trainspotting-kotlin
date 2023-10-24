@@ -32,6 +32,10 @@ val app: HttpHandler = routes(
         Response(OK).body("ping sightings get")
     },
     "/sightings" bind Method.POST to {
+        val trainRepo = LocalTrainRepo()
+        val sighting = trainRepo.getSightingFromJson(it.body.toString())
+
+
         Response(OK).body("ping sightings post")
     }
 )

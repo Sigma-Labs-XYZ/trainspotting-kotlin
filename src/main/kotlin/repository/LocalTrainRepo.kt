@@ -9,12 +9,14 @@ import java.time.LocalDateTime
 
 class LocalTrainRepo() : TrainRepo {
 
-    private var trainInfo = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
-        Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
+    companion object {
+        private var trainInfo = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
+            Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
 
-    private var sightings = mutableListOf(Sighting(0, "Liverpool Street",
-        Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
-        LocalDateTime.now()))
+        private var sightings = mutableListOf(Sighting(0, "Liverpool Street",
+            Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
+            LocalDateTime.now()))
+    }
 
     fun setTrainInfo(trains : MutableList<Train>) {
         trainInfo = trains
@@ -37,11 +39,16 @@ class LocalTrainRepo() : TrainRepo {
         val mapper = jacksonObjectMapper()
         mapper.registerModule(JavaTimeModule())
         val node = mapper.readTree(json)
-        println(node)
-        return mapper.readValue<Sighting>(json)
+        val sighting =  mapper.readValue<Sighting>(json)
+        sighting.id = sightings.size
+        return sighting
     }
 
     override fun postSighting(sighting: Sighting) {
         sightings.add(sighting)
+    }
+
+    fun getSightings(): MutableList<Sighting> {
+        return sightings
     }
 }
