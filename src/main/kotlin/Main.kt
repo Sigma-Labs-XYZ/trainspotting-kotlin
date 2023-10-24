@@ -41,7 +41,7 @@ val app: HttpHandler = routes(
     "/train/{id}/sightings" bind GET to {
         try {
             mapper= mapper.registerModule(JavaTimeModule())
-            val sightings = trainRepo.getSightingsJson(it.path("id").toString())
+            val sightings = trainRepo.getSightings(it.path("id").toString())
             val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
             Response(OK).body(jsonSightings)
         } catch (e: Exception){

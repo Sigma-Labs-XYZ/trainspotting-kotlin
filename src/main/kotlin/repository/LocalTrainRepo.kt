@@ -15,6 +15,9 @@ class LocalTrainRepo() : TrainRepo {
         Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
 
     private var sightingsInfo = mutableListOf(Sighting(0, Station(0, "LBG"), Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"), LocalDateTime.now()))
+
+    private var stations = mutableListOf(Station(0, "Liverpool Street"))
+
     fun setTrainInfo(trains : MutableList<Train>) {
         trainInfo = trains
     }
@@ -37,23 +40,7 @@ class LocalTrainRepo() : TrainRepo {
         throw NoSuchObjectException("No matching train with id $id found")
     }
 
-    override fun getSightingFromJson(json: String): Sighting {
-        val mapper = jacksonObjectMapper()
-        mapper.registerModule(JavaTimeModule())
-        val sighting =  mapper.readValue<Sighting>(json)
-        sighting.id = sightingsInfo.size
-        return sighting
-    }
-
-    override fun postSighting(sighting: Sighting) {
-        sightingsInfo.add(sighting)
-    }
-
-    fun getSightings(): MutableList<Sighting> {
-        return sightingsInfo
-    }
-
-    override fun getSightingsJson(id: String): List<Sighting> {
+    override fun getSightings(id: String): List<Sighting> {
         val relevantSightings = mutableListOf<Sighting>()
         for (sighting in sightingsInfo) {
             if (sighting.train.id == id) {
@@ -67,4 +54,39 @@ class LocalTrainRepo() : TrainRepo {
             throw NoSuchElementException("No sightings found for train $id")
         }
     }
+
+    override fun getSightingFromJson(json: String): Sighting {
+        val mapper = jacksonObjectMapper()
+        mapper.registerModule(JavaTimeModule())
+        val sighting =  mapper.readValue<Sighting>(json)
+        sighting.id = sightingsInfo.size
+        sighting.station.id = if(sighting.station.id == 0) stations.size else sighting.station.id
+        return sighting
+    }
+
+    override fun postSighting(sighting: Sighting) {
+        val stationNames = stations.map { it.name }
+        val trainIds = trainInfo.map { it.id }
+
+        if (sighting.station.name in stationNames) {
+            sighting.station.id = stationNames.indexOf(sighting.station.name)
+        } else {
+            stations.add(sighting.station)
+        }
+
+        if (sighting.train.id !in trainIds) {
+            trainInfo.add(sighting.train)
+        }
+
+        sightingsInfo.add(sighting)
+    }
+
+    fun getSightingsInfo(): MutableList<Sighting> {
+        return sightingsInfo
+    }
+
+    fun getStations(): MutableList<Station> {
+        return stations
+    }
+
 }
