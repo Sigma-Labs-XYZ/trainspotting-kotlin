@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="all complete">
+    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="Exception handling added to GET requests. Removed Null return for getTrain function as no longer needed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Sighting.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Sighting.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698072570974</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Exception handling added to GET requests. Removed Null return for getTrain function as no longer needed">
+      <option name="closed" value="true" />
+      <created>1698151080299</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698151080299</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +320,8 @@
     <MESSAGE value="get train by id end point completed.&#10;Functions in train repo changed to account for null" />
     <MESSAGE value="added second endpoint, added tests for Train and Local Train repo" />
     <MESSAGE value="all complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="all complete" />
+    <MESSAGE value="Exception handling added to GET requests" />
+    <MESSAGE value="Exception handling added to GET requests. Removed Null return for getTrain function as no longer needed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exception handling added to GET requests. Removed Null return for getTrain function as no longer needed" />
   </component>
 </project>

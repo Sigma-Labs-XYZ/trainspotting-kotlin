@@ -4,13 +4,14 @@ import Sighting
 import Station
 import Train
 import java.rmi.NoSuchObjectException
+import java.time.LocalDateTime
 
 class LocalTrainRepo() : TrainRepo {
 
     private var trainInfo = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
         Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
 
-    private var sightingsInfo = mutableListOf(Sighting("1", Station("001", "LBG"), Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"), "fake time"))
+    private var sightingsInfo = mutableListOf(Sighting("1", Station("001", "LBG"), Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"), LocalDateTime.now()))
     fun setTrainInfo(trains : MutableList<Train>) {
         trainInfo = trains
     }

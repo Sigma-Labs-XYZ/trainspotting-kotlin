@@ -1,5 +1,6 @@
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Method.GET
@@ -39,6 +40,7 @@ val app: HttpHandler = routes(
     },
     "/train/{id}/sightings" bind GET to {
         try {
+            mapper= mapper.registerModule(JavaTimeModule())
             val sightings = trainRepo.getSightings(it.path("id").toString())
             val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
             Response(OK).body(jsonSightings)
