@@ -1,5 +1,6 @@
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Method.GET
@@ -20,19 +21,32 @@ val trainRepo = LocalTrainRepo()
 
 val app: HttpHandler = routes(
     "/train" bind GET to {
-        val allTrains = trainRepo.getAllTrains()
-        val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
-        Response(OK).body(trainsAsString)
+        try {
+            val allTrains = trainRepo.getAllTrains()
+            val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
+            Response(OK).body(trainsAsString)
+        } catch (e: Exception){
+            Response(OK).body(e.message.toString())
+        }
+
     },
     "/train/{id}" bind GET to {
-        val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id").toString()))
-        Response(OK).body(train)
+        try {
+            val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id").toString()))
+            Response(OK).body(train)
+        } catch (e: Exception) {
+            Response(OK).body(e.message.toString())
+        }
     },
     "/train/{id}/sightings" bind GET to {
-        val sightings = trainRepo.getSightingsJson(it.path("id").toString())
-        val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
-
-        Response(OK).body(jsonSightings)
+        try {
+            mapper= mapper.registerModule(JavaTimeModule())
+            val sightings = trainRepo.getSightingsJson(it.path("id").toString())
+            val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
+            Response(OK).body(jsonSightings)
+        } catch (e: Exception){
+            Response(OK).body(e.message.toString())
+        }
     },
     "/sightings" bind Method.POST to {
         val sighting = trainRepo.getSightingFromJson(it.body.toString())

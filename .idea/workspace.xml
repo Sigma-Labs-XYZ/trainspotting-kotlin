@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="added second endpoint, added tests for Train and Local Train repo">
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
@@ -17,6 +18,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" afterDir="false" />
+=======
+    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="Added LocalDateTime and the required dependencies for this">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/SightingTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> 128d39db96eba4021284f8599c952af34abca435
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +53,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -83,11 +89,15 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "git-widget-placeholder": "sightings",
     "last_opened_file_path": "/Users/zaakirsimjee/trainspotting-kotlin/src/main/resources",
 =======
     "git-widget-placeholder": "get__sightings__endpoint",
 >>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
+=======
+    "git-widget-placeholder": "error__handling",
+>>>>>>> 128d39db96eba4021284f8599c952af34abca435
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,6 +125,7 @@
       <recent name="repository" />
     </key>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="RunManager" selected="Gradle.LocalTrainRepoTest.testGetTrainFromJson">
 =======
@@ -144,6 +155,9 @@
       <method v="2" />
     </configuration>
 >>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
+=======
+  <component name="RunManager">
+>>>>>>> 128d39db96eba4021284f8599c952af34abca435
     <configuration name="LocalTrainRepoTest.testGetTrain" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -168,7 +182,11 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="LocalTrainRepoTest.testGetTrainFromJson" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+=======
+    <configuration name="SightingTest.getId" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+>>>>>>> 128d39db96eba4021284f8599c952af34abca435
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -181,7 +199,11 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
+<<<<<<< HEAD
             <option value="&quot;repository.LocalTrainRepoTest.testGetTrainFromJson&quot;" />
+=======
+            <option value="&quot;SightingTest.getId&quot;" />
+>>>>>>> 128d39db96eba4021284f8599c952af34abca435
           </list>
         </option>
         <option name="vmOptions" />
@@ -246,17 +268,24 @@
     <recent_temporary>
       <list>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <item itemvalue="Gradle.LocalTrainRepoTest.testGetTrainFromJson" />
 =======
 >>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
+=======
+        <item itemvalue="Gradle.SightingTest.getId" />
+>>>>>>> 128d39db96eba4021284f8599c952af34abca435
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.anorak [build]" />
         <item itemvalue="Gradle.anorak [buildDependents]" />
         <item itemvalue="Gradle.LocalTrainRepoTest.testGetTrain" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <item itemvalue="Gradle.LocalTrainRepoTest.getAllTrains" />
 >>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
+=======
+>>>>>>> 128d39db96eba4021284f8599c952af34abca435
       </list>
     </recent_temporary>
   </component>
@@ -342,7 +371,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698072570974</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Exception handling added to GET requests. Removed Null return for getTrain function as no longer needed">
+      <option name="closed" value="true" />
+      <created>1698151080299</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698151080299</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added LocalDateTime and the required dependencies for this">
+      <option name="closed" value="true" />
+      <created>1698152343194</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1698152343194</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +408,15 @@
     <MESSAGE value="added correct method of calling dependecies" />
     <MESSAGE value="get train by id end point completed.&#10;Functions in train repo changed to account for null" />
     <MESSAGE value="added second endpoint, added tests for Train and Local Train repo" />
+<<<<<<< HEAD
     <MESSAGE value="created end points and installed import for post" />
     <option name="LAST_COMMIT_MESSAGE" value="created end points and installed import for post" />
+=======
+    <MESSAGE value="all complete" />
+    <MESSAGE value="Exception handling added to GET requests" />
+    <MESSAGE value="Exception handling added to GET requests. Removed Null return for getTrain function as no longer needed" />
+    <MESSAGE value="Added LocalDateTime and the required dependencies for this" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added LocalDateTime and the required dependencies for this" />
+>>>>>>> 128d39db96eba4021284f8599c952af34abca435
   </component>
 </project>
