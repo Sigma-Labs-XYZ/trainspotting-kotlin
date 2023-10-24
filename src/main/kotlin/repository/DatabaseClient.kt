@@ -1,5 +1,6 @@
 package repository
 
+import Sighting
 import Train
 
 class DatabaseClient : TrainRepo {
@@ -8,7 +9,11 @@ class DatabaseClient : TrainRepo {
         return "HI"
     }
 
-    override fun getTrain(id: String?): Train {
+    override fun getTrain(id: String): Train? {
+        TODO("Not yet implemented")
+    }
+
+    override fun getSightings(id: String): List<Sighting> {
         TODO("Not yet implemented")
     }
 
