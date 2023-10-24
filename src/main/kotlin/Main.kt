@@ -14,28 +14,29 @@ import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import repository.LocalTrainRepo
 
-val mapper = ObjectMapper()
+
+var mapper = ObjectMapper()
+val trainRepo = LocalTrainRepo()
 
 val app: HttpHandler = routes(
     "/train" bind GET to {
-        val trainRepo = LocalTrainRepo()
         val allTrains = trainRepo.getAllTrains()
         val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
         Response(OK).body(trainsAsString)
     },
-    "/train{id}" bind GET to {
-        val trainRepo = LocalTrainRepo()
-        val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id")))
+    "/train/{id}" bind GET to {
+        val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id").toString()))
         Response(OK).body(train)
     },
-    "/train{id}/sightings" bind GET to {
-        Response(OK).body("ping sightings get")
+    "/train/{id}/sightings" bind GET to {
+        val sightings = trainRepo.getSightingsJson(it.path("id").toString())
+        val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
+
+        Response(OK).body(jsonSightings)
     },
     "/sightings" bind Method.POST to {
-        val trainRepo = LocalTrainRepo()
         val sighting = trainRepo.getSightingFromJson(it.body.toString())
-
-
+        trainRepo.postSighting(sighting)
         Response(OK).body("ping sightings post")
     }
 )

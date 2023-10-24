@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="added second endpoint, added tests for Train and Local Train repo">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Sighting.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Station.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +47,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -76,8 +82,12 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+<<<<<<< HEAD
     "git-widget-placeholder": "sightings",
     "last_opened_file_path": "/Users/zaakirsimjee/trainspotting-kotlin/src/main/resources",
+=======
+    "git-widget-placeholder": "get__sightings__endpoint",
+>>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -105,7 +115,35 @@
       <recent name="repository" />
     </key>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Gradle.LocalTrainRepoTest.testGetTrainFromJson">
+=======
+  <component name="RunManager" selected="Kotlin.MainKt">
+    <configuration name="LocalTrainRepoTest.getAllTrains" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;repository.LocalTrainRepoTest.getAllTrains&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+>>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
     <configuration name="LocalTrainRepoTest.testGetTrain" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -207,11 +245,18 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Gradle.LocalTrainRepoTest.testGetTrainFromJson" />
+=======
+>>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.anorak [build]" />
         <item itemvalue="Gradle.anorak [buildDependents]" />
         <item itemvalue="Gradle.LocalTrainRepoTest.testGetTrain" />
+<<<<<<< HEAD
+=======
+        <item itemvalue="Gradle.LocalTrainRepoTest.getAllTrains" />
+>>>>>>> f9a6e58f23f014267061d4d4647235bd30f34453
       </list>
     </recent_temporary>
   </component>

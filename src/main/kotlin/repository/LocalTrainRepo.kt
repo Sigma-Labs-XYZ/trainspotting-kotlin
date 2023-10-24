@@ -12,7 +12,7 @@ class LocalTrainRepo() : TrainRepo {
     private var trainInfo = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
         Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
 
-    private var sightings = mutableListOf(Sighting(0, "Liverpool Street",
+    private var sightingsInfo = mutableListOf(Sighting(0, "Liverpool Street",
         Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
         LocalDateTime.now()))
 
@@ -24,11 +24,11 @@ class LocalTrainRepo() : TrainRepo {
         return trainInfo
     }
 
-    override fun getTrain(id: String?): Train? {
+    override fun getTrain(id: String): Train? {
         for (train in trainInfo) {
-            if (train.id == id) (
+            if (train.id == id) {
                 return train
-            )
+            }
         }
         return null
     }
@@ -36,17 +36,26 @@ class LocalTrainRepo() : TrainRepo {
     override fun getSightingFromJson(json: String): Sighting {
         val mapper = jacksonObjectMapper()
         mapper.registerModule(JavaTimeModule())
-        val node = mapper.readTree(json)
         val sighting =  mapper.readValue<Sighting>(json)
-        sighting.id = sightings.size
+        sighting.id = sightingsInfo.size
         return sighting
     }
 
     override fun postSighting(sighting: Sighting) {
-        sightings.add(sighting)
+        sightingsInfo.add(sighting)
     }
 
     fun getSightings(): MutableList<Sighting> {
-        return sightings
+        return sightingsInfo
+    }
+
+    override fun getSightingsJson(id: String): List<Sighting> {
+        val relevantSightings = mutableListOf<Sighting>()
+        for (sighting in sightingsInfo) {
+            if (sighting.train.id == id) {
+                relevantSightings.add(sighting)
+            }
+        }
+        return relevantSightings
     }
 }

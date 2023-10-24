@@ -60,6 +60,7 @@ class LocalTrainRepoTest {
 
     @Test
     fun getSightingFromJsonTest() {
+        val testTime = LocalDateTime.now()
         val jsonString = "{\n" +
                 "    \"station\": \"Liverpool Street\",\n" +
                 "    \"train\": {\n" +
@@ -68,16 +69,21 @@ class LocalTrainRepoTest {
                 "      \"colour\": \"Blue\",\n" +
                 "      \"trainNumber\": \"T1192A\"\n" +
                 "    },\n" +
-                "    \"timestamp\": \"${LocalDateTime.now()}\"\n" +
+                "    \"timestamp\": \"$testTime\"\n" +
                 "  }"
 
         val sighting = repoToTest.getSightingFromJson(jsonString)
+        val train = Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A")
 
-        println(sighting.id)
+        assertEquals(repoToTest.getSightings().size, sighting.id)
+        assertEquals("Liverpool Street", sighting.station)
+        assertEquals(train, sighting.train)
+        assertEquals(testTime, sighting.timestamp)
     }
 
     @Test
     fun testAddSightings() {
+        val sightingsListSize = repoToTest.getSightings().size
         val jsonString = "{\n" +
                 "    \"station\": \"Liverpool Street\",\n" +
                 "    \"train\": {\n" +
@@ -95,6 +101,6 @@ class LocalTrainRepoTest {
 
         val allSightings = repoToTest.getSightings()
 
-        println(allSightings)
+        assertEquals(sightingsListSize + 1, allSightings.size)
     }
 }

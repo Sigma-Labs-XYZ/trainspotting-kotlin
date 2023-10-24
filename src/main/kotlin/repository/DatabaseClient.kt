@@ -9,7 +9,11 @@ class DatabaseClient : TrainRepo {
         return "HI"
     }
 
-    override fun getTrain(id: String?): Train {
+    override fun getTrain(id: String): Train? {
+        TODO("Not yet implemented")
+    }
+
+    override fun getSightingsJson(id: String): List<Sighting> {
         TODO("Not yet implemented")
     }
 
