@@ -14,7 +14,6 @@ import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import repository.LocalTrainRepo
 
-
 val mapper = ObjectMapper()
 
 val app: HttpHandler = routes(

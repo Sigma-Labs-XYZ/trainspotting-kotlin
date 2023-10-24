@@ -23,7 +23,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:${System.getProperty("junitVersion")}")
     implementation("com.fasterxml.jackson.core:jackson-core:${System.getProperty("jacksonVersion")}")
     implementation("com.fasterxml.jackson.core:jackson-databind:${System.getProperty("jacksonVersion")}")
-    implementation("org.http4k:http4k-format-jackson:5.8.5.1")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.16.0-rc1")
+
 }
 
 tasks.test {

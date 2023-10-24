@@ -1,5 +1,6 @@
 package repository
 
+import Sighting
 import Train
 
 class DatabaseClient : TrainRepo {
@@ -9,6 +10,18 @@ class DatabaseClient : TrainRepo {
     }
 
     override fun getTrain(id: String?): Train {
+        TODO("Not yet implemented")
+    }
+
+    override fun getTrainFromJson(json: String): Train {
+        TODO("Not yet implemented")
+    }
+
+    override fun postSighting(sighting: Sighting) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getSightingFromJson(json: String): Sighting {
         TODO("Not yet implemented")
     }
 
