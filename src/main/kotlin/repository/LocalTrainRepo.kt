@@ -9,14 +9,12 @@ import java.time.LocalDateTime
 
 class LocalTrainRepo() : TrainRepo {
 
-    companion object {
-        private var trainInfo = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
-            Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
+    private var trainInfo = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
+        Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
 
-        private var sightings = mutableListOf(Sighting(0, "Liverpool Street",
-            Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
-            LocalDateTime.now()))
-    }
+    private var sightings = mutableListOf(Sighting(0, "Liverpool Street",
+        Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
+        LocalDateTime.now()))
 
     fun setTrainInfo(trains : MutableList<Train>) {
         trainInfo = trains
