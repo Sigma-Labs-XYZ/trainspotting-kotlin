@@ -1,11 +1,11 @@
 plugins {
     kotlin("jvm") version "1.9.0"
     application
+    id("com.google.cloud.tools.jib") version "3.4.0"
 }
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
-
 
 
 repositories {
