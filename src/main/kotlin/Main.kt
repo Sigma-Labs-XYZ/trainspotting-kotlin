@@ -1,5 +1,7 @@
-
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.google.auth.oauth2.GoogleCredentials
+import com.google.cloud.firestore.Firestore
+import com.google.cloud.firestore.FirestoreOptions
 import org.http4k.core.*
 import org.http4k.core.Method.GET
 import org.http4k.core.Status.Companion.INTERNAL_SERVER_ERROR
@@ -19,6 +21,13 @@ import java.rmi.NoSuchObjectException
 var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
 val errorLens = Body.auto<String>().toLens()
+
+val creds = Firestore::class.java.getResourceAsStream("")
+var firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder()
+    .setProjectId("large-fruit-company")
+    .setCredentials(GoogleCredentials.fromStream(creds))
+    .build()
+var db = firestoreOptions.getService()
 
 
 val app: HttpHandler = routes(
