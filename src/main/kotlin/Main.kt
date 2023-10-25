@@ -14,27 +14,22 @@ import org.http4k.routing.path
 import org.http4k.routing.routes
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
+import repository.DatabaseRepo
 import repository.LocalTrainRepo
 import java.rmi.NoSuchObjectException
 
 
 var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
+val dataRepo = DatabaseRepo()
 val errorLens = Body.auto<String>().toLens()
-
-val creds = Firestore::class.java.getResourceAsStream("")
-var firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder()
-    .setProjectId("large-fruit-company")
-    .setCredentials(GoogleCredentials.fromStream(creds))
-    .build()
-var db = firestoreOptions.getService()
 
 
 val app: HttpHandler = routes(
     "/train" bind GET to {
         try {
             val trainsLensResponse = Body.auto<List<Train>>().toLens()
-            val allTrains = trainRepo.getAllTrains()
+            val allTrains = dataRepo.getAllTrains()
             trainsLensResponse.inject(allTrains, Response(OK))
         } catch (e: NoSuchElementException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))
