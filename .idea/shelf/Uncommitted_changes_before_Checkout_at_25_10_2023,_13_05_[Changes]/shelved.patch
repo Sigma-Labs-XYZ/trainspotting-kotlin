@@ -1,0 +1,47 @@
+Index: build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\n    kotlin(\"jvm\") version \"1.9.0\"\n    application\n}\n\ngroup = \"org.example\"\nversion = \"1.0-SNAPSHOT\"\n\n\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n\n    testImplementation(kotlin(\"test\"))\n    implementation(\"org.http4k:http4k-core:${System.getProperty(\"http4kVersion\")}\")\n    implementation(\"org.jetbrains.kotlin:kotlin-stdlib-jdk8:${System.getProperty(\"kotlinVersion\")}\")\n    testImplementation(\"org.http4k:http4k-testing-approval:${System.getProperty(\"http4kVersion\")}\")\n    testImplementation(\"org.http4k:http4k-testing-hamkrest:${System.getProperty(\"http4kVersion\")}\")\n    testImplementation(\"org.junit.jupiter:junit-jupiter-api:${System.getProperty(\"junitVersion\")}\")\n    testImplementation(\"org.junit.jupiter:junit-jupiter-engine:${System.getProperty(\"junitVersion\")}\")\n    implementation(\"com.fasterxml.jackson.core:jackson-core:${System.getProperty(\"jacksonVersion\")}\")\n    implementation(\"com.fasterxml.jackson.core:jackson-databind:${System.getProperty(\"jacksonVersion\")}\")\n    implementation(\"org.http4k:http4k-format-jackson:5.8.5.1\")\n    implementation(\"com.fasterxml.jackson.module:jackson-module-kotlin:${System.getProperty(\"jacksonVersion\")}\")\n    implementation(\"com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${System.getProperty(\"jacksonVersion\")}\")\n}\n\ntasks.test {\n    useJUnitPlatform()\n}\n\nkotlin {\n    jvmToolchain(8)\n}\n\napplication {\n    mainClass.set(\"MainKt\")\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle.kts b/build.gradle.kts
+--- a/build.gradle.kts	(revision 128d39db96eba4021284f8599c952af34abca435)
++++ b/build.gradle.kts	(date 1698234931091)
+@@ -26,6 +26,7 @@
+     implementation("org.http4k:http4k-format-jackson:5.8.5.1")
+     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${System.getProperty("jacksonVersion")}")
+     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${System.getProperty("jacksonVersion")}")
++    implementation("com.google.cloud:google-cloud-firestore:3.15.2")
+ }
+ 
+ tasks.test {
+Index: src/main/kotlin/repository/FirestoreDB.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/repository/FirestoreDB.kt b/src/main/kotlin/repository/FirestoreDB.kt
+new file mode 100644
+--- /dev/null	(date 1698235359560)
++++ b/src/main/kotlin/repository/FirestoreDB.kt	(date 1698235359560)
+@@ -0,0 +1,18 @@
++package repository
++
++import com.google.auth.oauth2.GoogleCredentials
++import com.google.cloud.firestore.Firestore
++import com.google.cloud.firestore.FirestoreOptions
++import com.google.cloud.firestore.v1.FirestoreClient
++
++object FirestoreDB {
++    val creds = FirestoreClient::class.java.getResourceAsStream("")
++    var firestoreOptions = FirestoreOptions
++        .getDefaultInstance()
++        .toBuilder()
++        .setProjectId("large-fruit-company")
++        .setCredentials(GoogleCredentials.fromStream(creds))
++        .build()
++
++}
++var db: Firestore = firestoreOptions.getService()
+\ No newline at end of file

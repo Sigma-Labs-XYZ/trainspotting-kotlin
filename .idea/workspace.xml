@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="created separate database class">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseRepo.kt" afterDir="false" />
+    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="modifying database connection, test failing">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,8 +209,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.LocalTrainRepoTest" />
-        <item itemvalue="Gradle.LocalTrainRepoTest.testAddSightings" />
         <item itemvalue="Gradle.LocalTrainRepoTest.getSightingFromJsonTest" />
+        <item itemvalue="Gradle.LocalTrainRepoTest.testAddSightings" />
         <item itemvalue="Gradle.anorak [build]" />
         <item itemvalue="Gradle.anorak [buildDependents]" />
       </list>
@@ -306,6 +304,7 @@
     <MESSAGE value="add dependency for firestore" />
     <MESSAGE value="added key.json to gitignore" />
     <MESSAGE value="created separate database class" />
-    <option name="LAST_COMMIT_MESSAGE" value="created separate database class" />
+    <MESSAGE value="modifying database connection, test failing" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifying database connection, test failing" />
   </component>
 </project>
