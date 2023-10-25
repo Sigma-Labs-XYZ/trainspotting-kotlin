@@ -52,7 +52,7 @@ val app: HttpHandler = routes(
     "/train/{id}/sightings" bind GET to {
         try {
             val sightingsLensResponse = Body.auto<List<Sighting>>().toLens()
-            val sightings = trainRepo.getSightings(it.path("id").toString().toInt())
+            val sightings = dataRepo.getSightings(it.path("id").toString().toInt())
             sightingsLensResponse.inject(sightings, Response(OK))
         } catch (e: NoSuchElementException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))
