@@ -8,12 +8,12 @@ interface TrainRepo {
 
     fun getAllTrains(): Any
 
-    fun getTrain(id: String) : Train
+    fun getTrain(id: Int) : Train
 
     fun postSighting(sighting: Sighting)
 
-    fun getSightings(id: String): List<Sighting>
-
     fun getSightingFromJson(json: String): Sighting
+
+    fun getSightings(id: Int) : List<Sighting>
 
 }

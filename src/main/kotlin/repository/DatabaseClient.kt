@@ -9,7 +9,7 @@ class DatabaseClient : TrainRepo {
         return "HI"
     }
 
-    override fun getTrain(id: String): Train {
+    override fun getTrain(id: Int): Train {
         TODO("Not yet implemented")
     }
 
@@ -21,7 +21,7 @@ class DatabaseClient : TrainRepo {
         TODO("Not yet implemented")
     }
 
-    override fun getSightings(id: String): List<Sighting> {
+    override fun getSightings(id: Int): List<Sighting> {
         TODO("Not yet implemented")
     }
 

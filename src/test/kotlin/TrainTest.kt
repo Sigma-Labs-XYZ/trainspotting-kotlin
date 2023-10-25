@@ -3,14 +3,14 @@ import org.junit.jupiter.api.Test
 class TrainTest {
 
     private fun setup(): Train {
-        return Train("Fake-1032", "Faker", "Yellow", "beas234")
+        return Train(1032, "Faker", "Yellow", "beas234")
     }
 
     private val trainToTest = setup()
 
     @Test
     fun getId() {
-        assert(trainToTest.id == "Fake-1032")
+        assert(trainToTest.id == 1032)
     }
 
     @Test

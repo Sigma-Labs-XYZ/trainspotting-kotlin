@@ -1,13 +1,12 @@
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import org.http4k.core.HttpHandler
-import org.http4k.core.Method
+import org.http4k.core.*
 import org.http4k.core.Method.GET
-import org.http4k.core.Response
+import org.http4k.core.Status.Companion.INTERNAL_SERVER_ERROR
+import org.http4k.core.Status.Companion.NOT_FOUND
 import org.http4k.core.Status.Companion.OK
-import org.http4k.core.then
 import org.http4k.filter.DebuggingFilters.PrintRequest
+import org.http4k.format.Jackson.auto
 import org.http4k.routing.bind
 import org.http4k.routing.path
 import org.http4k.routing.routes
@@ -16,37 +15,45 @@ import org.http4k.server.asServer
 import repository.LocalTrainRepo
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.http4k.core.Status.Companion.BAD_REQUEST
+import java.rmi.NoSuchObjectException
 
 var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
+val errorLens = Body.auto<String>().toLens()
+
 
 val app: HttpHandler = routes(
     "/train" bind GET to {
         try {
+            val trainsLensResponse = Body.auto<List<Train>>().toLens()
             val allTrains = trainRepo.getAllTrains()
-            val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
-            Response(OK).body(trainsAsString)
-        } catch (e: Exception){
-            Response(OK).body(e.message.toString())
+            trainsLensResponse.inject(allTrains, Response(OK))
+        } catch (e: NoSuchElementException) {
+            errorLens.inject(e.message.toString(), Response(NOT_FOUND))
+        } catch (e: Exception) {
+            errorLens.inject(e.message.toString(), Response(INTERNAL_SERVER_ERROR))
         }
-
     },
     "/train/{id}" bind GET to {
         try {
-            val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id").toString()))
-            Response(OK).body(train)
+            val idLensResponse = Body.auto<Train>().toLens()
+            val output = trainRepo.getTrain(it.path("id").toString().toInt())
+            idLensResponse.inject(output, Response(OK))
+        } catch (e: NoSuchObjectException) {
+            errorLens.inject(e.message.toString(), Response(NOT_FOUND))
         } catch (e: Exception) {
-            Response(OK).body(e.message.toString())
+            errorLens.inject(e.message.toString(), Response(INTERNAL_SERVER_ERROR))
         }
     },
     "/train/{id}/sightings" bind GET to {
         try {
-            mapper= mapper.registerModule(JavaTimeModule())
-            val sightings = trainRepo.getSightings(it.path("id").toString())
-            val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
-            Response(OK).body(jsonSightings)
-        } catch (e: Exception){
-            Response(OK).body(e.message.toString())
+            val sightingsLensResponse = Body.auto<List<Sighting>>().toLens()
+            val sightings = trainRepo.getSightings(it.path("id").toString().toInt())
+            sightingsLensResponse.inject(sightings, Response(OK))
+        } catch (e: NoSuchElementException) {
+            errorLens.inject(e.message.toString(), Response(NOT_FOUND))
+        } catch (e: Exception) {
+            errorLens.inject(e.message.toString(), Response(INTERNAL_SERVER_ERROR))
         }
     },
     "/sightings" bind Method.POST to {

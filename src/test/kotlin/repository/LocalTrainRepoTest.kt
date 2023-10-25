@@ -8,8 +8,8 @@ import kotlin.test.assertEquals
 class LocalTrainRepoTest {
     private fun setup(): MutableList<Train> {
         return mutableListOf(
-            Train("Fake-One", "Tomas", "Pink", "Oink23A"),
-            Train("Fake-Two", "Owl", "Brown", "Toot42B")
+            Train(1, "Tomas", "Pink", "Oink23A"),
+            Train(2, "Owl", "Brown", "Toot42B")
         )
     }
 
@@ -19,7 +19,7 @@ class LocalTrainRepoTest {
     fun testGetAllTrains() {
         repoToTest.setTrainInfo(setup())
         assert(repoToTest.getAllTrains().size == 2)
-        assert(repoToTest.getAllTrains()[0].id == "Fake-One")
+        assert(repoToTest.getAllTrains()[0].id == 1)
         assert(repoToTest.getAllTrains()[0].name == "Tomas")
         assert(repoToTest.getAllTrains()[0].colour == "Pink")
         assert(repoToTest.getAllTrains()[0].trainNumber == "Oink23A")
@@ -28,8 +28,8 @@ class LocalTrainRepoTest {
     @Test
     fun testGetTrain() {
         repoToTest.setTrainInfo(setup())
-        val trainReturned = repoToTest.getTrain("Fake-Two")
-        assert(trainReturned!!.colour == "Brown")
+        val trainReturned = repoToTest.getTrain(2)
+        assert(trainReturned.colour == "Brown")
         assert(trainReturned.name == "Owl")
     }
 
@@ -39,20 +39,19 @@ class LocalTrainRepoTest {
         val jsonString = "{\n" +
                 "    \"station\": {\"name\" : \"Liverpool Street\"},\n" +
                 "    \"train\": {\n" +
-                "      \"id\": \"FSE34-fSFes2\",\n" +
                 "      \"name\": \"Thomas\",\n" +
                 "      \"colour\": \"Blue\",\n" +
-                "      \"trainNumber\": \"T1192A\"\n" +
+                "      \"trainNumber\": \"T1182A\"\n" +
                 "    },\n" +
                 "    \"timestamp\": \"$testTime\"\n" +
                 "  }"
 
         println(jsonString)
         val sighting = repoToTest.getSightingFromJson(jsonString)
-        val train = Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A")
+        val train = Train(0, "Thomas", "Blue", "T1182A")
 
         assertEquals(repoToTest.getSightingsInfo().size, sighting.id)
-        assertEquals(repoToTest.getStations().size, sighting.station.id)
+        assertEquals(0, sighting.station.id)
         assertEquals(train, sighting.train)
         assertEquals(testTime, sighting.timestamp)
     }
@@ -63,7 +62,6 @@ class LocalTrainRepoTest {
         val jsonString = "{\n" +
                 "    \"station\": {\"name\" : \"Liverpool Street\"},\n" +
                 "    \"train\": {\n" +
-                "      \"id\": \"FSE34-fSFes2\",\n" +
                 "      \"name\": \"Thomas\",\n" +
                 "      \"colour\": \"Blue\",\n" +
                 "      \"trainNumber\": \"T1192A\"\n" +

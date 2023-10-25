@@ -1,11 +1,11 @@
 plugins {
     kotlin("jvm") version "1.9.0"
     application
+    id("com.google.cloud.tools.jib") version "3.4.0"
 }
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
-
 
 
 repositories {
@@ -23,6 +23,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:${System.getProperty("junitVersion")}")
     implementation("com.fasterxml.jackson.core:jackson-core:${System.getProperty("jacksonVersion")}")
     implementation("com.fasterxml.jackson.core:jackson-databind:${System.getProperty("jacksonVersion")}")
+    implementation("org.http4k:http4k-format-jackson:5.8.5.1")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${System.getProperty("jacksonVersion")}")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${System.getProperty("jacksonVersion")}")
 }

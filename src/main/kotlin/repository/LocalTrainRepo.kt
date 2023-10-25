@@ -31,26 +31,20 @@ class LocalTrainRepo() : TrainRepo {
         }
     }
 
-    override fun getTrain(id: String): Train {
-        for (train in trainInfo) {
-            if (train.id == id.toInt()) {
-                return train
-            }
+    override fun getTrain(id: Int): Train {
+        val matchingTrain = trainInfo.filter { it.id == id }
+        if (matchingTrain.isNotEmpty()) {
+            return matchingTrain[0]
+        } else {
+            throw NoSuchObjectException("No matching train with id $id found")
         }
-        throw NoSuchObjectException("No matching train with id $id found")
     }
 
-    override fun getSightings(id: String): List<Sighting> {
-        val relevantSightings = mutableListOf<Sighting>()
-        for (sighting in sightingsInfo) {
-            if (sighting.train.id == id.toInt()) {
-                relevantSightings.add(sighting)
-            }
-        }
-        if (relevantSightings.size != 0) {
+    override fun getSightings(id: Int): List<Sighting> {
+        val relevantSightings = sightingsInfo.filter{ it.train.id == id}
+        if (relevantSightings.isNotEmpty()) {
             return relevantSightings
-        }
-        else {
+        } else {
             throw NoSuchElementException("No sightings found for train $id")
         }
     }
@@ -60,8 +54,6 @@ class LocalTrainRepo() : TrainRepo {
         mapper.registerModule(JavaTimeModule())
         val sighting =  mapper.readValue<Sighting>(json)
         sighting.id = sightingsInfo.size
-        sighting.station.id = stations.size
-        sighting.train.id = trainInfo.size
         return sighting
     }
 
@@ -72,12 +64,14 @@ class LocalTrainRepo() : TrainRepo {
         if (sighting.station.name in stationNames) {
             sighting.station.id = stationNames.indexOf(sighting.station.name)
         } else {
+            sighting.station.id = stations.size
             stations.add(sighting.station)
         }
 
         if (sighting.train.trainNumber in trainNumbers) {
             sighting.train.id = trainNumbers.indexOf(sighting.train.name)
         } else {
+            sighting.train.id = trainInfo.size
             trainInfo.add(sighting.train)
         }
 

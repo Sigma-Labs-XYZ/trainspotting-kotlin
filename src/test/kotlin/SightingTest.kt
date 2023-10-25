@@ -8,7 +8,7 @@ import java.time.LocalTime
 class SightingTest {
 
     private fun setup(): Sighting {
-        return Sighting(0, Station(0, "Fake_Stn"), Train("Fake-1032", "Faker", "Yellow", "beas234"), LocalDateTime.of(
+        return Sighting(1, Station(1, "Fake_Stn"), Train(1032, "Faker", "Yellow", "beas234"), LocalDateTime.of(
             LocalDate.of(2023, 10, 24),
             LocalTime.of(10, 24, 13, 58)))
     }
@@ -17,7 +17,7 @@ class SightingTest {
 
     @Test
     fun getId() {
-        assertTrue(sightingToTest.id == 0)
+        assertTrue(sightingToTest.id == 1)
     }
 
     @Test
