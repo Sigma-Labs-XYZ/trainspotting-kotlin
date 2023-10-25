@@ -1,13 +1,11 @@
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import org.http4k.core.HttpHandler
-import org.http4k.core.Method
+import org.http4k.core.*
 import org.http4k.core.Method.GET
-import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
-import org.http4k.core.then
 import org.http4k.filter.DebuggingFilters.PrintRequest
+import org.http4k.format.Jackson.auto
 import org.http4k.routing.bind
 import org.http4k.routing.path
 import org.http4k.routing.routes
@@ -19,12 +17,14 @@ import repository.LocalTrainRepo
 var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
 
+
 val app: HttpHandler = routes(
     "/train" bind GET to {
         try {
+            val trainsLensResponse = Body.auto<List<Train>>().toLens()
             val allTrains = trainRepo.getAllTrains()
-            val trainsAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(allTrains)
-            Response(OK).body(trainsAsString)
+            trainsLensResponse.inject(allTrains, Response(OK))
+
         } catch (e: Exception){
             Response(OK).body(e.message.toString())
         }
@@ -32,18 +32,20 @@ val app: HttpHandler = routes(
     },
     "/train/{id}" bind GET to {
         try {
-            val train = mapper.writeValueAsString(trainRepo.getTrain(it.path("id").toString()))
-            Response(OK).body(train)
+            val idLensResponse = Body.auto<Train>().toLens()
+            val output = trainRepo.getTrain(it.path("id").toString())
+            idLensResponse.inject(output, Response(OK))
         } catch (e: Exception) {
+            //put in specific exception before this (not found one) 404
+            // return an error code and change response from ok to something else 500
             Response(OK).body(e.message.toString())
         }
     },
     "/train/{id}/sightings" bind GET to {
         try {
-            mapper= mapper.registerModule(JavaTimeModule())
+            val sightingsLensResponse = Body.auto<List<Sighting>>().toLens()
             val sightings = trainRepo.getSightings(it.path("id").toString())
-            val jsonSightings = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sightings)
-            Response(OK).body(jsonSightings)
+            sightingsLensResponse.inject(sightings, Response(OK))
         } catch (e: Exception){
             Response(OK).body(e.message.toString())
         }
