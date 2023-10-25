@@ -6,7 +6,7 @@ import Train
 
 interface TrainRepo {
 
-    fun getAllTrains(): List<Train>
+    fun getAllTrains(): Any
 
     fun getTrain(id: Int) : Train
 
