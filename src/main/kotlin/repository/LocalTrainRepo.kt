@@ -39,7 +39,6 @@ class LocalTrainRepo() : TrainRepo {
         if (relevantSightings.isNotEmpty()) {
             return relevantSightings
         } else {
-
             throw NoSuchElementException("No sightings found for train $id")
         }
     }
