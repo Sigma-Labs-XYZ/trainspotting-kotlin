@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="Added LocalDateTime and the required dependencies for this">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/SightingTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="Added LocalDateTime and the required dependencies for this">
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/repository/LocalTrainRepoTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,277 +32,80 @@
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
-        <option value="Kotlin Data Class" />
-        <option value="JUnit5 Test Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="KotlinCodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gawsalya&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="94dff4ae-7390-43d3-88ad-4c749d3ea1d9" />
+        <option name="url" value="https://github.com/Sigma-Labs-XYZ/trainspotting-kotlin.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2X9t3QNiVRubtLHZ1fycbvMgda0" />
+  <component name="ProjectId" id="2XFUOzok0xTHvbgFNwqaWWOUVjK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "error__handling",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;docker&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="Repository" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="" />
-      <recent name="repository" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="LocalTrainRepoTest.testGetTrain" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;repository.LocalTrainRepoTest.testGetTrain&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="SightingTest.getId" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;SightingTest.getId&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="anorak [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="buildDependents" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="anorak [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainKt" />
-      <module name="anorak.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.SightingTest.getId" />
-        <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.anorak [build]" />
-        <item itemvalue="Gradle.anorak [buildDependents]" />
-        <item itemvalue="Gradle.LocalTrainRepoTest.testGetTrain" />
-      </list>
-    </recent_temporary>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a9f0596f-502d-45b4-bbfa-a51f61715d0a" name="Changes" comment="" />
-      <created>1698052923765</created>
+      <changelist id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="re-added plugin" />
+      <created>1698224294919</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1698052923765</updated>
-      <workItem from="1698052924758" duration="9278000" />
+      <updated>1698224294919</updated>
+      <workItem from="1698224296945" duration="6994000" />
     </task>
-    <task id="LOCAL-00001" summary="added correct method of calling dependecies">
+    <task id="LOCAL-00001" summary="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post">
       <option name="closed" value="true" />
-      <created>1698054382981</created>
+      <created>1698229697119</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1698054382981</updated>
+      <updated>1698229697119</updated>
     </task>
-    <task id="LOCAL-00002" summary="added correct method of calling dependecies">
+    <task id="LOCAL-00002" summary="added appropriate error codes to HTTP requests">
       <option name="closed" value="true" />
-      <created>1698054492786</created>
+      <created>1698230864721</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1698054492786</updated>
+      <updated>1698230864721</updated>
     </task>
-    <task id="LOCAL-00003" summary="added correct method of calling dependecies">
+    <task id="LOCAL-00003" summary="modified error responses to be returned in json format">
       <option name="closed" value="true" />
-      <created>1698054508369</created>
+      <created>1698232801255</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1698054508369</updated>
+      <updated>1698232801255</updated>
     </task>
-    <task id="LOCAL-00004" summary="added correct method of calling dependecies">
-      <option name="closed" value="true" />
-      <created>1698054965084</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1698054965084</updated>
-    </task>
-    <task id="LOCAL-00005" summary="added correct method of calling dependecies">
-      <option name="closed" value="true" />
-      <created>1698055163003</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1698055163003</updated>
-    </task>
-    <task id="LOCAL-00006" summary="created end points and installed import for post">
-      <option name="closed" value="true" />
-      <created>1698055452515</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1698055452515</updated>
-    </task>
-    <task id="LOCAL-00007" summary="get train by id end point completed.&#10;Functions in train repo changed to account for null">
-      <option name="closed" value="true" />
-      <created>1698068524553</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1698068524553</updated>
-    </task>
-    <task id="LOCAL-00008" summary="added second endpoint, added tests for Train and Local Train repo">
-      <option name="closed" value="true" />
-      <created>1698072470227</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1698072470227</updated>
-    </task>
-    <task id="LOCAL-00009" summary="added second endpoint, added tests for Train and Local Train repo">
-      <option name="closed" value="true" />
-      <created>1698072570974</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1698072570974</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Exception handling added to GET requests. Removed Null return for getTrain function as no longer needed">
-      <option name="closed" value="true" />
-      <created>1698151080299</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1698151080299</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added LocalDateTime and the required dependencies for this">
-      <option name="closed" value="true" />
-      <created>1698152343194</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1698152343194</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,13 +123,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added correct method of calling dependecies" />
-    <MESSAGE value="created end points and installed import for post" />
-    <MESSAGE value="get train by id end point completed.&#10;Functions in train repo changed to account for null" />
-    <MESSAGE value="added second endpoint, added tests for Train and Local Train repo" />
-    <MESSAGE value="all complete" />
-    <MESSAGE value="Exception handling added to GET requests" />
-    <MESSAGE value="Exception handling added to GET requests. Removed Null return for getTrain function as no longer needed" />
+    <MESSAGE value="re-added plugin" />
+    <MESSAGE value="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post" />
+    <MESSAGE value="added appropriate error codes to HTTP requests" />
+    <MESSAGE value="modified error responses to be returned in json format" />
     <MESSAGE value="Added LocalDateTime and the required dependencies for this" />
     <option name="LAST_COMMIT_MESSAGE" value="Added LocalDateTime and the required dependencies for this" />
   </component>
