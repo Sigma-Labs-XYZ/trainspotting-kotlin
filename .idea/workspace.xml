@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post">
+    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="modified error responses to be returned in json format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Sighting.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Sighting.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Station.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Station.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Train.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Train.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/LocalTrainRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/TrainRepo.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698224294919</updated>
-      <workItem from="1698224296945" duration="4801000" />
+      <workItem from="1698224296945" duration="6994000" />
     </task>
     <task id="LOCAL-00001" summary="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post">
       <option name="closed" value="true" />
@@ -90,7 +96,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698229697119</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added appropriate error codes to HTTP requests">
+      <option name="closed" value="true" />
+      <created>1698230864721</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698230864721</updated>
+    </task>
+    <task id="LOCAL-00003" summary="modified error responses to be returned in json format">
+      <option name="closed" value="true" />
+      <created>1698232801255</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698232801255</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +132,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="re-added plugin" />
     <MESSAGE value="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post" />
+    <MESSAGE value="added appropriate error codes to HTTP requests" />
+    <MESSAGE value="modified error responses to be returned in json format" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified error responses to be returned in json format" />
   </component>
 </project>

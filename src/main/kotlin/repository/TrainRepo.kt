@@ -8,8 +8,8 @@ interface TrainRepo {
 
     fun getAllTrains(): Any
 
-    fun getTrain(id: String) : Train
+    fun getTrain(id: Int) : Train
 
-    fun getSightings(id: String) : List<Sighting>
+    fun getSightings(id: Int) : List<Sighting>
 
 }

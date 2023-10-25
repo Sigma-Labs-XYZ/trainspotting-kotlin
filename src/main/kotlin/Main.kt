@@ -1,6 +1,5 @@
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.http4k.core.*
 import org.http4k.core.Method.GET
 import org.http4k.core.Status.Companion.INTERNAL_SERVER_ERROR
@@ -37,7 +36,7 @@ val app: HttpHandler = routes(
     "/train/{id}" bind GET to {
         try {
             val idLensResponse = Body.auto<Train>().toLens()
-            val output = trainRepo.getTrain(it.path("id").toString())
+            val output = trainRepo.getTrain(it.path("id").toString().toInt())
             idLensResponse.inject(output, Response(OK))
         } catch (e: NoSuchObjectException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))
@@ -48,7 +47,7 @@ val app: HttpHandler = routes(
     "/train/{id}/sightings" bind GET to {
         try {
             val sightingsLensResponse = Body.auto<List<Sighting>>().toLens()
-            val sightings = trainRepo.getSightings(it.path("id").toString())
+            val sightings = trainRepo.getSightings(it.path("id").toString().toInt())
             sightingsLensResponse.inject(sightings, Response(OK))
         } catch (e: NoSuchElementException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))
