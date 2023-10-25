@@ -3,6 +3,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.http4k.core.*
 import org.http4k.core.Method.GET
+import org.http4k.core.Status.Companion.INTERNAL_SERVER_ERROR
+import org.http4k.core.Status.Companion.NOT_FOUND
 import org.http4k.core.Status.Companion.OK
 import org.http4k.filter.DebuggingFilters.PrintRequest
 import org.http4k.format.Jackson.auto
@@ -12,6 +14,7 @@ import org.http4k.routing.routes
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import repository.LocalTrainRepo
+import java.rmi.NoSuchObjectException
 
 
 var mapper = ObjectMapper()
@@ -24,21 +27,21 @@ val app: HttpHandler = routes(
             val trainsLensResponse = Body.auto<List<Train>>().toLens()
             val allTrains = trainRepo.getAllTrains()
             trainsLensResponse.inject(allTrains, Response(OK))
-
-        } catch (e: Exception){
-            Response(OK).body(e.message.toString())
+        } catch (e: NoSuchElementException) {
+            Response(NOT_FOUND).body(e.message.toString())
+        } catch (e: Exception) {
+            Response(INTERNAL_SERVER_ERROR).body(e.message.toString())
         }
-
     },
     "/train/{id}" bind GET to {
         try {
             val idLensResponse = Body.auto<Train>().toLens()
             val output = trainRepo.getTrain(it.path("id").toString())
             idLensResponse.inject(output, Response(OK))
+        } catch (e: NoSuchObjectException) {
+            Response(NOT_FOUND).body(e.message.toString())
         } catch (e: Exception) {
-            //put in specific exception before this (not found one) 404
-            // return an error code and change response from ok to something else 500
-            Response(OK).body(e.message.toString())
+            Response(INTERNAL_SERVER_ERROR).body(e.message.toString())
         }
     },
     "/train/{id}/sightings" bind GET to {
@@ -46,8 +49,10 @@ val app: HttpHandler = routes(
             val sightingsLensResponse = Body.auto<List<Sighting>>().toLens()
             val sightings = trainRepo.getSightings(it.path("id").toString())
             sightingsLensResponse.inject(sightings, Response(OK))
-        } catch (e: Exception){
-            Response(OK).body(e.message.toString())
+        } catch (e: NoSuchElementException) {
+            Response(NOT_FOUND).body(e.message.toString())
+        } catch (e: Exception) {
+            Response(INTERNAL_SERVER_ERROR).body(e.message.toString())
         }
     },
     "/sightings" bind Method.POST to {

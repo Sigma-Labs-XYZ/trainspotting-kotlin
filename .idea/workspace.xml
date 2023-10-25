@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="re-added plugin">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
@@ -81,8 +80,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698224294919</updated>
-      <workItem from="1698224296945" duration="3559000" />
+      <workItem from="1698224296945" duration="4801000" />
     </task>
+    <task id="LOCAL-00001" summary="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post">
+      <option name="closed" value="true" />
+      <created>1698229697119</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698229697119</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +109,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="re-added plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="re-added plugin" />
+    <MESSAGE value="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed format of GET responses to JSON. No longer needing javatime module or object mapper however kept as required for post" />
   </component>
 </project>
