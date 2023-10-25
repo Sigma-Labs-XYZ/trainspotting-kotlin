@@ -60,13 +60,14 @@ class LocalTrainRepo() : TrainRepo {
         mapper.registerModule(JavaTimeModule())
         val sighting =  mapper.readValue<Sighting>(json)
         sighting.id = sightingsInfo.size
-        sighting.station.id = if(sighting.station.id == 0) stations.size else sighting.station.id
+        sighting.station.id = stations.size
+        sighting.train.id = trainInfo.size
         return sighting
     }
 
     override fun postSighting(sighting: Sighting) {
         val stationNames = stations.map { it.name }
-        val trainIds = trainInfo.map { it.id }
+        val trainNames = trainInfo.map { it.name }
 
         if (sighting.station.name in stationNames) {
             sighting.station.id = stationNames.indexOf(sighting.station.name)
@@ -74,7 +75,9 @@ class LocalTrainRepo() : TrainRepo {
             stations.add(sighting.station)
         }
 
-        if (sighting.train.id !in trainIds) {
+        if (sighting.train.name in trainNames) {
+            sighting.train.id = trainNames.indexOf(sighting.train.name)
+        } else {
             trainInfo.add(sighting.train)
         }
 
