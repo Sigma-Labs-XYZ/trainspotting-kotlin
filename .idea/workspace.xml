@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="add dependency for firestore">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="980ca84b-b079-48b6-82f1-dd00763cee46" name="Changes" comment="added key.json to gitignore">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/DBConnect.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Train.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Train.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/DatabaseRepo.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +34,13 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Object" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -81,7 +89,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.anorak [build]">
+  <component name="RunManager">
     <configuration name="anorak [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -175,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698239855440</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added key.json to gitignore">
+      <option name="closed" value="true" />
+      <created>1698240181401</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698240181401</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +227,7 @@
     <MESSAGE value="modified error responses to be returned in json format" />
     <MESSAGE value="Added LocalDateTime and the required dependencies for this" />
     <MESSAGE value="add dependency for firestore" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dependency for firestore" />
+    <MESSAGE value="added key.json to gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added key.json to gitignore" />
   </component>
 </project>
