@@ -16,8 +16,9 @@ import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import repository.DatabaseRepo
 import repository.LocalTrainRepo
+import com.fasterxml.jackson.databind.JsonMappingException
+import org.http4k.core.Status.Companion.BAD_REQUEST
 import java.rmi.NoSuchObjectException
-
 
 var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
@@ -60,7 +61,15 @@ val app: HttpHandler = routes(
         }
     },
     "/sightings" bind Method.POST to {
-        Response(OK).body("ping sightings post")
+        try{
+            val content = it.bodyString()
+            val sighting = trainRepo.getSightingFromJson(content)
+            trainRepo.postSighting(sighting)
+
+            Response(OK).body("successful sightings post")
+        } catch(e: JsonMappingException) {
+            Response(BAD_REQUEST).body("Invalid JSON string")
+        }
     }
 )
 

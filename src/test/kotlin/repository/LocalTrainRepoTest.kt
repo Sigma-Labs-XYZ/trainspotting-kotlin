@@ -2,6 +2,8 @@ package repository
 
 import Train
 import org.junit.jupiter.api.Test
+import java.time.LocalDateTime
+import kotlin.test.assertEquals
 
 class LocalTrainRepoTest {
     private fun setup(): MutableList<Train> {
@@ -29,5 +31,50 @@ class LocalTrainRepoTest {
         val trainReturned = repoToTest.getTrain(2)
         assert(trainReturned.colour == "Brown")
         assert(trainReturned.name == "Owl")
+    }
+
+    @Test
+    fun getSightingFromJsonTest() {
+        val testTime = LocalDateTime.now()
+        val jsonString = "{\n" +
+                "    \"station\": {\"name\" : \"Liverpool Street\"},\n" +
+                "    \"train\": {\n" +
+                "      \"name\": \"Thomas\",\n" +
+                "      \"colour\": \"Blue\",\n" +
+                "      \"trainNumber\": \"T1182A\"\n" +
+                "    },\n" +
+                "    \"timestamp\": \"$testTime\"\n" +
+                "  }"
+
+        println(jsonString)
+        val sighting = repoToTest.getSightingFromJson(jsonString)
+        val train = Train(0, "Thomas", "Blue", "T1182A")
+
+        assertEquals(repoToTest.getSightingsInfo().size, sighting.id)
+        assertEquals(0, sighting.station.id)
+        assertEquals(train, sighting.train)
+        assertEquals(testTime, sighting.timestamp)
+    }
+
+    @Test
+    fun testAddSightings() {
+        val sightingsListSize = repoToTest.getSightingsInfo().size
+        val jsonString = "{\n" +
+                "    \"station\": {\"name\" : \"Liverpool Street\"},\n" +
+                "    \"train\": {\n" +
+                "      \"name\": \"Thomas\",\n" +
+                "      \"colour\": \"Blue\",\n" +
+                "      \"trainNumber\": \"T1192A\"\n" +
+                "    },\n" +
+                "    \"timestamp\": \"${LocalDateTime.now()}\"\n" +
+                "  }"
+
+        val sighting = repoToTest.getSightingFromJson(jsonString)
+
+        repoToTest.postSighting(sighting)
+
+        val allSightings = repoToTest.getSightingsInfo()
+
+        assertEquals(sightingsListSize + 1, allSightings.size)
     }
 }
