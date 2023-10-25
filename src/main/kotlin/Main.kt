@@ -4,7 +4,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Method.GET
-
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
 import org.http4k.core.then
@@ -15,7 +14,8 @@ import org.http4k.routing.routes
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import repository.LocalTrainRepo
-import java.io.BufferedReader
+import com.fasterxml.jackson.databind.JsonMappingException
+import org.http4k.core.Status.Companion.BAD_REQUEST
 
 var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
@@ -50,11 +50,15 @@ val app: HttpHandler = routes(
         }
     },
     "/sightings" bind Method.POST to {
-        val content = it.bodyString()
-        val sighting = trainRepo.getSightingFromJson(content)
-        trainRepo.postSighting(sighting)
+        try{
+            val content = it.bodyString()
+            val sighting = trainRepo.getSightingFromJson(content)
+            trainRepo.postSighting(sighting)
 
-        Response(OK).body("successful sightings post")
+            Response(OK).body("successful sightings post")
+        } catch(e: JsonMappingException) {
+            Response(BAD_REQUEST).body("Invalid JSON string")
+        }
     }
 )
 

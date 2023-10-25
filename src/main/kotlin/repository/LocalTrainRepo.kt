@@ -67,7 +67,7 @@ class LocalTrainRepo() : TrainRepo {
 
     override fun postSighting(sighting: Sighting) {
         val stationNames = stations.map { it.name }
-        val trainNames = trainInfo.map { it.name }
+        val trainNumbers = trainInfo.map { it.trainNumber }
 
         if (sighting.station.name in stationNames) {
             sighting.station.id = stationNames.indexOf(sighting.station.name)
@@ -75,8 +75,8 @@ class LocalTrainRepo() : TrainRepo {
             stations.add(sighting.station)
         }
 
-        if (sighting.train.name in trainNames) {
-            sighting.train.id = trainNames.indexOf(sighting.train.name)
+        if (sighting.train.trainNumber in trainNumbers) {
+            sighting.train.id = trainNumbers.indexOf(sighting.train.name)
         } else {
             trainInfo.add(sighting.train)
         }
