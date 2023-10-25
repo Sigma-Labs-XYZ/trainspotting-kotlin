@@ -1,4 +1,4 @@
 data class Station(
-    var id: Int,
-    val name: String
+    var id: Int = -1,
+    val name: String = ""
 )

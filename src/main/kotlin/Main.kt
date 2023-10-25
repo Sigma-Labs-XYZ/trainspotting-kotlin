@@ -15,10 +15,12 @@ import org.http4k.server.asServer
 import repository.LocalTrainRepo
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.http4k.core.Status.Companion.BAD_REQUEST
+import repository.DatabaseClient
 import java.rmi.NoSuchObjectException
 
 var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
+val dataRepo = DatabaseClient()
 val errorLens = Body.auto<String>().toLens()
 
 
@@ -26,7 +28,7 @@ val app: HttpHandler = routes(
     "/train" bind GET to {
         try {
             val trainsLensResponse = Body.auto<List<Train>>().toLens()
-            val allTrains = trainRepo.getAllTrains()
+            val allTrains = dataRepo.getAllTrains()
             trainsLensResponse.inject(allTrains, Response(OK))
         } catch (e: NoSuchElementException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))
@@ -48,7 +50,7 @@ val app: HttpHandler = routes(
     "/train/{id}/sightings" bind GET to {
         try {
             val sightingsLensResponse = Body.auto<List<Sighting>>().toLens()
-            val sightings = trainRepo.getSightings(it.path("id").toString().toInt())
+            val sightings = dataRepo.getSightings(it.path("id").toString().toInt())
             sightingsLensResponse.inject(sightings, Response(OK))
         } catch (e: NoSuchElementException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))

@@ -5,7 +5,7 @@ import com.google.cloud.firestore.FirestoreOptions
 object DBConnect {
     fun getConnection(): Firestore {
         val cred = Firestore::class.java.classLoader.getResourceAsStream("key.json")
-        var firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder()
+        val firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder()
             .setProjectId("large-fruit-company")
             .setCredentials(GoogleCredentials.fromStream(cred))
             .build()
