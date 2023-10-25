@@ -11,10 +11,10 @@ import java.time.LocalDateTime
 
 class LocalTrainRepo() : TrainRepo {
 
-    private var trainInfo = mutableListOf (Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"),
-        Train("FSE34-fSFes3", "Martin", "Green","T1222B"), Train("FSE34-fSFes5", "Suzy", "Orange", "T2445A"))
+    private var trainInfo = mutableListOf (Train(0, "Thomas", "Blue", "T1192A"),
+        Train(1, "Martin", "Green","T1222B"), Train(2, "Suzy", "Orange", "T2445A"))
 
-    private var sightingsInfo = mutableListOf(Sighting(0, Station(0, "LBG"), Train("FSE34-fSFes2", "Thomas", "Blue", "T1192A"), LocalDateTime.now()))
+    private var sightingsInfo = mutableListOf(Sighting(0, Station(0, "LBG"), Train(0, "Thomas", "Blue", "T1192A"), LocalDateTime.now()))
 
     private var stations = mutableListOf(Station(0, "Liverpool Street"))
 
@@ -33,7 +33,7 @@ class LocalTrainRepo() : TrainRepo {
 
     override fun getTrain(id: String): Train {
         for (train in trainInfo) {
-            if (train.id == id) {
+            if (train.id == id.toInt()) {
                 return train
             }
         }
@@ -43,7 +43,7 @@ class LocalTrainRepo() : TrainRepo {
     override fun getSightings(id: String): List<Sighting> {
         val relevantSightings = mutableListOf<Sighting>()
         for (sighting in sightingsInfo) {
-            if (sighting.train.id == id) {
+            if (sighting.train.id == id.toInt()) {
                 relevantSightings.add(sighting)
             }
         }
