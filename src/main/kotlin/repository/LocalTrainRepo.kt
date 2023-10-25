@@ -26,25 +26,20 @@ class LocalTrainRepo() : TrainRepo {
     }
 
     override fun getTrain(id: String): Train {
-        for (train in trainInfo) {
-            if (train.id == id) {
-                return train
-            }
+        val matchingTrain = trainInfo.filter { it.id == id }
+        if (matchingTrain.isNotEmpty()) {
+            return matchingTrain[0]
+        } else {
+            throw NoSuchObjectException("No matching train with id $id found")
         }
-        throw NoSuchObjectException("No matching train with id $id found")
     }
 
     override fun getSightings(id: String): List<Sighting> {
-        val relevantSightings = mutableListOf<Sighting>()
-        for (sighting in sightingsInfo) {
-            if (sighting.train.id == id) {
-                relevantSightings.add(sighting)
-            }
-        }
-        if (relevantSightings.size != 0) {
+        val relevantSightings = sightingsInfo.filter{ it.train.id == id}
+        if (relevantSightings.isNotEmpty()) {
             return relevantSightings
-        }
-        else {
+        } else {
+
             throw NoSuchElementException("No sightings found for train $id")
         }
     }

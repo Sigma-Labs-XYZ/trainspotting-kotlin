@@ -19,6 +19,7 @@ import java.rmi.NoSuchObjectException
 
 var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
+val errorLens = Body.auto<String>().toLens()
 
 
 val app: HttpHandler = routes(
@@ -28,9 +29,9 @@ val app: HttpHandler = routes(
             val allTrains = trainRepo.getAllTrains()
             trainsLensResponse.inject(allTrains, Response(OK))
         } catch (e: NoSuchElementException) {
-            Response(NOT_FOUND).body(e.message.toString())
+            errorLens.inject(e.message.toString(), Response(NOT_FOUND))
         } catch (e: Exception) {
-            Response(INTERNAL_SERVER_ERROR).body(e.message.toString())
+            errorLens.inject(e.message.toString(), Response(INTERNAL_SERVER_ERROR))
         }
     },
     "/train/{id}" bind GET to {
@@ -39,9 +40,9 @@ val app: HttpHandler = routes(
             val output = trainRepo.getTrain(it.path("id").toString())
             idLensResponse.inject(output, Response(OK))
         } catch (e: NoSuchObjectException) {
-            Response(NOT_FOUND).body(e.message.toString())
+            errorLens.inject(e.message.toString(), Response(NOT_FOUND))
         } catch (e: Exception) {
-            Response(INTERNAL_SERVER_ERROR).body(e.message.toString())
+            errorLens.inject(e.message.toString(), Response(INTERNAL_SERVER_ERROR))
         }
     },
     "/train/{id}/sightings" bind GET to {
@@ -50,9 +51,9 @@ val app: HttpHandler = routes(
             val sightings = trainRepo.getSightings(it.path("id").toString())
             sightingsLensResponse.inject(sightings, Response(OK))
         } catch (e: NoSuchElementException) {
-            Response(NOT_FOUND).body(e.message.toString())
+            errorLens.inject(e.message.toString(), Response(NOT_FOUND))
         } catch (e: Exception) {
-            Response(INTERNAL_SERVER_ERROR).body(e.message.toString())
+            errorLens.inject(e.message.toString(), Response(INTERNAL_SERVER_ERROR))
         }
     },
     "/sightings" bind Method.POST to {
