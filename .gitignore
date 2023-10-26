@@ -43,4 +43,5 @@ bin/
 .DS_Store
 
 ### GCP Key ###
-/src/main/resources/Large Fruit Company Service Account.jsongit
+/src/main/resources/Large Fruit Company Service Account.json
+/src/main/resources/key.json
