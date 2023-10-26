@@ -61,7 +61,6 @@ val app: HttpHandler = routes(
             val content = it.bodyString()
             val sighting = trainRepo.getSightingFromJson(content)
             trainRepo.postSighting(sighting)
-
             Response(OK).body("successful sightings post")
         } catch(e: JsonMappingException) {
             Response(BAD_REQUEST).body("Invalid JSON string")
