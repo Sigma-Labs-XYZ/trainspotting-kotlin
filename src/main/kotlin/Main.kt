@@ -59,11 +59,15 @@ val app: HttpHandler = routes(
     "/sightings" bind Method.POST to {
         try{
             val content = it.bodyString()
-            val sighting = trainRepo.getSightingFromJson(content)
-            trainRepo.postSighting(sighting)
+            val sighting = dataRepo.getSightingFromJson(content)
+            println(sighting)
+            dataRepo.postSighting(sighting)
             Response(OK).body("successful sightings post")
         } catch(e: JsonMappingException) {
-            Response(BAD_REQUEST).body("Invalid JSON string")
+            Response(BAD_REQUEST).body("invalid JSON string")
+        } catch(e: Exception) {
+            println(e.message)
+            Response(OK).body("exception post")
         }
     }
 )
