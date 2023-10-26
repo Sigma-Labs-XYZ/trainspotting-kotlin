@@ -4,8 +4,12 @@ import DBConnect
 import Sighting
 import Station
 import Train
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import com.google.cloud.firestore.QueryDocumentSnapshot
 import java.rmi.NoSuchObjectException
+import java.time.LocalDateTime
 
 
 class DatabaseClient : TrainRepo {
@@ -22,11 +26,6 @@ class DatabaseClient : TrainRepo {
         val allTrains = mutableListOf<Train>()
         for (train in trainDocs) {
             allTrains.add(train.toObject(Train::class.java))
-            /*Train
-                id = train.getLong("id")!!.toInt(),
-                name = train.getString("name")!!,
-                colour = train.getString("colour")!!,
-                trainNumber = train.getString("trainNumber")!!*/
         }
         return allTrains
     }
@@ -46,47 +45,44 @@ class DatabaseClient : TrainRepo {
     }
 
     override fun getSightingFromJson(json: String): Sighting {
-        TODO("Not yet implemented")
+        val sightingDocs = queryCollections("sightings-kotlin")
+        val mapper = jacksonObjectMapper()
+        mapper.registerModule(JavaTimeModule())
+        val sighting =  mapper.readValue<Sighting>(json)
+        sighting.id = sightingDocs.size
+        return sighting
     }
 
     override fun getSightings(id: Int): List<Sighting> {
-        println(id)
         val sightingDocs = queryCollections("sightings-kotlin")
-        println(sightingDocs)
         val allSightings = mutableListOf<Sighting>()
         for (sighting in sightingDocs) {
-            println(sighting.data)
-            //allSightings.add(convertSightingToClass(sighting))
+            allSightings.add(convertSightingToClass(sighting))
         }
-        println(allSightings)
-        return allSightings
+        val relevantSightings = allSightings.filter { it.train.id == id }
+        if (relevantSightings.isNotEmpty()) {
+            return relevantSightings
+        } else {
+            throw NoSuchElementException("No sightings found for train $id")
+        }
 }
 
 
     private fun convertSightingToClass(dataSightingSnapshot: QueryDocumentSnapshot): Sighting {
+
         return Sighting(
-            id = dataSightingSnapshot.getLong("id")!!,
-            station = Station(),
-            train = Train(
-                dataSightingSnapshot.getLong("train.id")!!.toInt(),
-                dataSightingSnapshot.getString("train.name")!!,
-                dataSightingSnapshot.getString("train.colour")!!,
-                dataSightingSnapshot.getString("train.trainNumber")!!
+            id = dataSightingSnapshot.getLong("id")!!.toInt(),
+            station = Station(
+                dataSightingSnapshot.getLong("Station.id")!!.toInt(),
+                dataSightingSnapshot.getString("Station.name")!!
             ),
-            timestamp = dataSightingSnapshot.getDate("timestamp")!!
+            train = Train(
+                dataSightingSnapshot.getLong("Train.id")!!.toInt(),
+                dataSightingSnapshot.getString("Train.name")!!,
+                dataSightingSnapshot.getString("Train.colour")!!,
+                dataSightingSnapshot.getString("Train.trainNumber")!!
+            ),
+            timestamp = LocalDateTime.parse(dataSightingSnapshot.getString("timestamp")!!)
         )
     }
 }
-
-//allSightings.add(sighting.toObject(Sighting::class.java))
-/*val sighting2 =  mapper.readValue<Sighting>(sighting)
-println(sighting.get("Station").toString())
-val station: Map<String, Any> = HashMap()
-allSightings.add(sighting2)*/
-
-/*val relevantSightings = allSightings.filter { it.train.id == id }
-if (relevantSightings.isNotEmpty()) {
-    return relevantSightings
-} else {
-    throw NoSuchElementException("No sightings found for train $id")
-}*/
