@@ -1,5 +1,4 @@
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import org.http4k.core.*
 import org.http4k.core.Method.GET
 import org.http4k.core.Status.Companion.INTERNAL_SERVER_ERROR
@@ -15,10 +14,11 @@ import org.http4k.server.asServer
 import repository.LocalTrainRepo
 import com.fasterxml.jackson.databind.JsonMappingException
 import org.http4k.core.Status.Companion.BAD_REQUEST
+import repository.DatabaseClient
 import java.rmi.NoSuchObjectException
 
-var mapper = ObjectMapper()
 val trainRepo = LocalTrainRepo()
+val dataRepo = DatabaseClient()
 val errorLens = Body.auto<String>().toLens()
 
 
@@ -26,7 +26,7 @@ val app: HttpHandler = routes(
     "/train" bind GET to {
         try {
             val trainsLensResponse = Body.auto<List<Train>>().toLens()
-            val allTrains = trainRepo.getAllTrains()
+            val allTrains = dataRepo.getAllTrains()
             trainsLensResponse.inject(allTrains, Response(OK))
         } catch (e: NoSuchElementException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))
@@ -37,7 +37,7 @@ val app: HttpHandler = routes(
     "/train/{id}" bind GET to {
         try {
             val idLensResponse = Body.auto<Train>().toLens()
-            val output = trainRepo.getTrain(it.path("id").toString().toInt())
+            val output = dataRepo.getTrain(it.path("id").toString().toInt())
             idLensResponse.inject(output, Response(OK))
         } catch (e: NoSuchObjectException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))
@@ -48,7 +48,7 @@ val app: HttpHandler = routes(
     "/train/{id}/sightings" bind GET to {
         try {
             val sightingsLensResponse = Body.auto<List<Sighting>>().toLens()
-            val sightings = trainRepo.getSightings(it.path("id").toString().toInt())
+            val sightings = dataRepo.getSightings(it.path("id").toString().toInt())
             sightingsLensResponse.inject(sightings, Response(OK))
         } catch (e: NoSuchElementException) {
             errorLens.inject(e.message.toString(), Response(NOT_FOUND))
@@ -59,12 +59,12 @@ val app: HttpHandler = routes(
     "/sightings" bind Method.POST to {
         try{
             val content = it.bodyString()
-            val sighting = trainRepo.getSightingFromJson(content)
-            trainRepo.postSighting(sighting)
-
+            val sighting = dataRepo.getSightingFromJson(content)
+            println(sighting)
+            dataRepo.postSighting(sighting)
             Response(OK).body("successful sightings post")
         } catch(e: JsonMappingException) {
-            Response(BAD_REQUEST).body("Invalid JSON string")
+            Response(BAD_REQUEST).body("invalid JSON string")
         }
     }
 )

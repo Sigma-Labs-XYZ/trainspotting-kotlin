@@ -1,4 +1,5 @@
 .gradle
+key.json
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
@@ -43,3 +44,4 @@ bin/
 
 ### GCP Key ###
 /src/main/resources/Large Fruit Company Service Account.json
+/src/main/resources/key.json

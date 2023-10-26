@@ -48,10 +48,11 @@ class LocalTrainRepoTest {
 
         println(jsonString)
         val sighting = repoToTest.getSightingFromJson(jsonString)
-        val train = Train(0, "Thomas", "Blue", "T1182A")
+        println(sighting)
+        val train = Train(-1, "Thomas", "Blue", "T1182A")
 
         assertEquals(repoToTest.getSightingsInfo().size, sighting.id)
-        assertEquals(0, sighting.station.id)
+        assertEquals(-1, sighting.station.id)
         assertEquals(train, sighting.train)
         assertEquals(testTime, sighting.timestamp)
     }

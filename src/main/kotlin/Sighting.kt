@@ -1,8 +1,9 @@
+
 import java.time.LocalDateTime
 
 data class Sighting(
-    var id: Int,
-    val station: Station,
-    val train: Train,
-    val timestamp: LocalDateTime
+    var id: Int = -1,
+    val station: Station = Station(),
+    val train: Train = Train(),
+    val timestamp: LocalDateTime = LocalDateTime.now()
 )

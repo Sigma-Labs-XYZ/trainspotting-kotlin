@@ -1,6 +1,6 @@
 data class Train(
-    var id: Int,
-    val name: String,
-    val colour: String,
-    val trainNumber: String
+    var id: Int = -1,
+    val name: String = "",
+    val colour: String = "",
+    val trainNumber: String = ""
 )

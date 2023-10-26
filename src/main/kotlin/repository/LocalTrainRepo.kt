@@ -69,7 +69,7 @@ class LocalTrainRepo() : TrainRepo {
         }
 
         if (sighting.train.trainNumber in trainNumbers) {
-            sighting.train.id = trainNumbers.indexOf(sighting.train.name)
+            sighting.train.id = trainNumbers.indexOf(sighting.train.trainNumber)
         } else {
             sighting.train.id = trainInfo.size
             trainInfo.add(sighting.train)
