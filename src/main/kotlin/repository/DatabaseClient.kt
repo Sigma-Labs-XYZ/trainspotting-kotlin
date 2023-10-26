@@ -60,7 +60,8 @@ class DatabaseClient : TrainRepo {
     }
 
     override fun postSighting(sighting: Sighting) {
-        val sightingsRef = db.collection("sightings-kotlin").document()
+        val sightingsCount = queryCollections("sightings-kotlin").size
+        val sightingsRef = db.collection("sightings-kotlin").document("$sightingsCount")
         val stations = getAllStations()
         val trains = getAllTrains()
         val stationNames = stations.map { it.name }
@@ -70,21 +71,22 @@ class DatabaseClient : TrainRepo {
             sighting.station.id = stationNames.indexOf(sighting.station.name)
         } else {
             sighting.station.id = stations.size
-            val stationsRef = db.collection("stations-kotlin").document()
+            val stationsRef = db.collection("stations-kotlin").document("${stations.size}")
             val station = mapper.convertValue(sighting.station, Map::class.java)
             stationsRef.set(station)
         }
 
         if (sighting.train.trainNumber in trainNumbers) {
-            sighting.train.id = trainNumbers.indexOf(sighting.train.name)
+            sighting.train.id = trainNumbers.indexOf(sighting.train.trainNumber)
         } else {
             sighting.train.id = trains.size
-            val trainsRef = db.collection("trains-kotlin").document()
+            val trainsRef = db.collection("trains-kotlin").document("${trains.size}")
             val train = mapper.convertValue(sighting.train, Map::class.java)
             trainsRef.set(train)
         }
 
         val sightingData = mapper.convertValue(sighting, Map::class.java)
+        println(sightingData)
 
         sightingsRef.set(sightingData)
     }
@@ -116,14 +118,14 @@ class DatabaseClient : TrainRepo {
         return Sighting(
             id = dataSightingSnapshot.getLong("id")!!.toInt(),
             station = Station(
-                dataSightingSnapshot.getLong("Station.id")!!.toInt(),
-                dataSightingSnapshot.getString("Station.name")!!
+                dataSightingSnapshot.getLong("station.id")!!.toInt(),
+                dataSightingSnapshot.getString("station.name")!!
             ),
             train = Train(
-                dataSightingSnapshot.getLong("Train.id")!!.toInt(),
-                dataSightingSnapshot.getString("Train.name")!!,
-                dataSightingSnapshot.getString("Train.colour")!!,
-                dataSightingSnapshot.getString("Train.trainNumber")!!
+                dataSightingSnapshot.getLong("train.id")!!.toInt(),
+                dataSightingSnapshot.getString("train.name")!!,
+                dataSightingSnapshot.getString("train.colour")!!,
+                dataSightingSnapshot.getString("train.trainNumber")!!
             ),
             timestamp = LocalDateTime.parse(dataSightingSnapshot.getString("timestamp")!!)
         )

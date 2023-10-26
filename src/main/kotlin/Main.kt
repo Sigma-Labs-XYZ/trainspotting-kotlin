@@ -65,9 +65,6 @@ val app: HttpHandler = routes(
             Response(OK).body("successful sightings post")
         } catch(e: JsonMappingException) {
             Response(BAD_REQUEST).body("invalid JSON string")
-        } catch(e: Exception) {
-            println(e.message)
-            Response(OK).body("exception post")
         }
     }
 )
